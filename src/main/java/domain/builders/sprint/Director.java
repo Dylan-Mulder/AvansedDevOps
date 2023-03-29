@@ -1,4 +1,7 @@
-package domain;
+package domain.builders.sprint;
+
+import domain.strategies.sprint.FinishRelease;
+import domain.strategies.sprint.FinishReview;
 
 public class Director {
     /* ATTRIBUTES */

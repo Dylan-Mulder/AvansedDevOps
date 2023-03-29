@@ -1,4 +1,8 @@
-package domain;
+package domain.builders.sprint;
+
+import domain.Developer;
+import domain.Sprint;
+import domain.strategies.sprint.IFinishBehaviour;
 
 public class SprintBuilder implements IBuilder {
     /* ATTRIBUTES */
@@ -16,7 +20,7 @@ public class SprintBuilder implements IBuilder {
     }
 
     @Override
-    public void setType(FinishBehaviour finishBehaviour) {
+    public void setType(IFinishBehaviour finishBehaviour) {
         sprint.setFinishBehaviour(finishBehaviour);
     }
 

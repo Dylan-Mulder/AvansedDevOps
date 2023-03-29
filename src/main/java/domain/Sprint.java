@@ -2,6 +2,9 @@ package domain;
 
 import domain.states.backlogItem.AbstractBacklogItemState;
 import domain.states.backlogItem.InBacklogState;
+import domain.states.sprint.AbstractSprintState;
+import domain.states.sprint.NotStartedState;
+import domain.strategies.sprint.IFinishBehaviour;
 
 import java.util.ArrayList;
 
@@ -9,10 +12,10 @@ public class Sprint {
     /* ATTRIBUTES */
     private String name;
     private String description;
-    private AbstractBacklogItemState state = new NotStartedState();
+    private AbstractSprintState state = new NotStartedState();
     private ArrayList<BacklogItem> backlogItems = new ArrayList<>();
     private ArrayList<Developer> developers = new ArrayList<>();
-    private FinishBehaviour finishBehaviour;
+    private IFinishBehaviour finishBehaviour;
     private int duration;
     private Developer scrumMaster;
 
@@ -26,7 +29,7 @@ public class Sprint {
     public String getDescription() {
         return description;
     }
-    public AbstractBacklogItemState getState() {
+    public AbstractSprintState getState() {
         return state;
     }
     public ArrayList<BacklogItem> getBacklogItems() {
@@ -35,7 +38,7 @@ public class Sprint {
     public ArrayList<Developer> getDevelopers() {
         return developers;
     }
-    public FinishBehaviour getFinishBehaviour() {
+    public IFinishBehaviour getFinishBehaviour() {
         return finishBehaviour;
     }
     public int getDuration() {
@@ -52,7 +55,7 @@ public class Sprint {
     public void setDescription(String description) {
         this.description = description;
     }
-    public void setState(AbstractBacklogItemState state) {
+    public void setState(AbstractSprintState state) {
         this.state = state;
     }
     public void addBacklogItem(BacklogItem backlogItem) {
@@ -67,7 +70,7 @@ public class Sprint {
     public void removeDeveloper(Developer developer) {
         developers.remove(developer);
     }
-    public void setFinishBehaviour(FinishBehaviour finishBehaviour) {
+    public void setFinishBehaviour(IFinishBehaviour finishBehaviour) {
         this.finishBehaviour = finishBehaviour;
     }
     public void setDuration(int duration) {
