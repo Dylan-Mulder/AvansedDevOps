@@ -1,7 +1,5 @@
 package domain.strategies.sprint;
 
-import domain.Sprint;
-
 public class FinishReview implements IFinishBehaviour {
     /* ATTRIBUTES */
 

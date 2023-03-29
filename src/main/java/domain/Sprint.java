@@ -1,7 +1,5 @@
 package domain;
 
-import domain.states.backlogItem.AbstractBacklogItemState;
-import domain.states.backlogItem.InBacklogState;
 import domain.states.sprint.AbstractSprintState;
 import domain.states.sprint.NotStartedState;
 import domain.strategies.sprint.IFinishBehaviour;
@@ -13,8 +11,8 @@ public class Sprint {
     private String name;
     private String description;
     private AbstractSprintState state = new NotStartedState();
-    private ArrayList<BacklogItem> backlogItems = new ArrayList<>();
-    private ArrayList<Developer> developers = new ArrayList<>();
+    private final ArrayList<BacklogItem> backlogItems = new ArrayList<>();
+    private final ArrayList<Developer> developers = new ArrayList<>();
     private IFinishBehaviour finishBehaviour;
     private int duration;
     private Developer scrumMaster;

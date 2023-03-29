@@ -2,9 +2,7 @@ package domain.states.backlogItem;
 
 import domain.BacklogItem;
 import domain.Task;
-
 import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class InBacklogState extends AbstractBacklogItemState {
     /* ATTRIBUTES */

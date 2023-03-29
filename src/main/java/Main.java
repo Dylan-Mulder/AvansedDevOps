@@ -1,6 +1,4 @@
 import domain.BacklogItem;
-import domain.Developer;
-import domain.Task;
 
 public class Main {
     public static void main(String[] args) {
