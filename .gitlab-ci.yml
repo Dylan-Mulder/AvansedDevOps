@@ -72,7 +72,7 @@ sonarcloud-check:
     paths:
       - .sonar/cache
   script:
-    - 'mvn $MAVEN_CLI_OPTS verify sonar:sonar -Dsonar.projectKey=tvw203_bica'
+    - 'mvn $MAVEN_CLI_OPTS verify sonar:sonar -Dsonar.projectKey=tvw203_avanseddevops'
   only:
     - main
     - merge_requests
