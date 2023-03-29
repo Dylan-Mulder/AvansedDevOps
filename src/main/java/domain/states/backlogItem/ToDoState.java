@@ -3,7 +3,9 @@ package domain.states.backlogItem;
 import domain.BacklogItem;
 import domain.Task;
 
-public class ToDoState implements IBacklogItemState {
+import java.util.logging.Level;
+
+public class ToDoState extends AbstractBacklogItemState {
     /* ATTRIBUTES */
 
 
@@ -18,33 +20,32 @@ public class ToDoState implements IBacklogItemState {
 
 
     /* METHODS */
-    @Override
-    public void setName(BacklogItem backlogItem, String name) {
-
+    public void changeName(BacklogItem backlogItem, String name) {
+        logger.log(Level.WARNING, "Can't change name!");
     }
 
-    @Override
-    public void setDescription(BacklogItem backlogItem, String description) {
-
+    public void changeDescription(BacklogItem backlogItem, String description) {
+        logger.log(Level.INFO, "Changed " + backlogItem.getDescription() + " to " + description);
+        backlogItem.setDescription(description);
     }
 
-    @Override
-    public void addTask(BacklogItem backlogItem, Task task) {
-
+    public void changeTasksAdd(BacklogItem backlogItem, Task task) {
+        logger.log(Level.INFO, "Added task " + task.getName() + " to " + backlogItem.getName());
+        backlogItem.addTask(task);
     }
 
-    @Override
-    public void removeTask(BacklogItem backlogItem, Task task) {
-
+    public void changeTasksRemove(BacklogItem backlogItem, Task task) {
+        logger.log(Level.INFO, "Removed task " + task.getName() + " from " + backlogItem.getName());
+        backlogItem.removeTask(task);
     }
 
-    @Override
     public void moveForward(BacklogItem backlogItem) {
-
+        logger.log(Level.INFO, "Moved " + backlogItem.getName() + " to: Doing");
+        backlogItem.setState(new DoingState());
     }
 
-    @Override
     public void moveBackward(BacklogItem backlogItem) {
-
+        logger.log(Level.INFO, "Moved " + backlogItem.getName() + " to: In Backlog");
+        backlogItem.setState(new InBacklogState());
     }
 }

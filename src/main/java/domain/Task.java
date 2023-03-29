@@ -5,14 +5,12 @@ public class Task {
     private String name;
     private String description;
     private Developer currentDeveloper;
-    private boolean isFinished;
+    private boolean isFinished = false;
 
     /* CONSTRUCTORS */
-    public Task(String name, String description, Developer currentDeveloper, boolean finished) {
+    public Task(String name, String description) {
         this.name = name;
         this.description = description;
-        this.currentDeveloper = currentDeveloper;
-        this.isFinished = finished;
     }
 
     /* GETTERS */
@@ -39,7 +37,7 @@ public class Task {
     public void setCurrentDeveloper(Developer currentDeveloper) {
         this.currentDeveloper = currentDeveloper;
     }
-    public void setFinished(boolean finished) {
+    public void setIsFinished(boolean finished) {
         this.isFinished = finished;
     }
 

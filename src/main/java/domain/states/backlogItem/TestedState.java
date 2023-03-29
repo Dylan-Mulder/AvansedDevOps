@@ -3,7 +3,9 @@ package domain.states.backlogItem;
 import domain.BacklogItem;
 import domain.Task;
 
-public class TestedState implements IBacklogItemState {
+import java.util.logging.Level;
+
+public class TestedState extends AbstractBacklogItemState {
     /* ATTRIBUTES */
 
 
@@ -18,33 +20,29 @@ public class TestedState implements IBacklogItemState {
 
 
     /* METHODS */
-    @Override
-    public void setName(BacklogItem backlogItem, String name) {
-
+    public void changeName(BacklogItem backlogItem, String name) {
+        logger.log(Level.WARNING, "Can't change name!");
     }
 
-    @Override
-    public void setDescription(BacklogItem backlogItem, String description) {
-
+    public void changeDescription(BacklogItem backlogItem, String description) {
+        logger.log(Level.WARNING, "Can't change description!");
     }
 
-    @Override
-    public void addTask(BacklogItem backlogItem, Task task) {
-
+    public void changeTasksAdd(BacklogItem backlogItem, Task task) {
+        logger.log(Level.WARNING, "Can't add tasks now!");
     }
 
-    @Override
-    public void removeTask(BacklogItem backlogItem, Task task) {
-
+    public void changeTasksRemove(BacklogItem backlogItem, Task task) {
+        logger.log(Level.WARNING, "Can't remove tasks now!");
     }
 
-    @Override
     public void moveForward(BacklogItem backlogItem) {
-
+        logger.log(Level.INFO, "Moved " + backlogItem.getName() + " to: Done");
+        backlogItem.setState(new DoneState());
     }
 
-    @Override
     public void moveBackward(BacklogItem backlogItem) {
-
+        logger.log(Level.INFO, "Moved " + backlogItem.getName() + " to: Ready For Testing");
+        backlogItem.setState(new ReadyForTestingState());
     }
 }
