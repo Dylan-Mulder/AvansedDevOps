@@ -13,6 +13,6 @@ public class FinishRelease implements IFinishBehaviour {
     /* METHODS */
     @Override
     public void performFinish() {
-
+        System.out.println("Released!");
     }
 }

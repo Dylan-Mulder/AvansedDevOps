@@ -8,9 +8,9 @@ import java.util.ArrayList;
 
 public class Sprint {
     /* ATTRIBUTES */
-    private String name;
+    private String title;
     private String description;
-    private AbstractSprintState state = new NotStartedState();
+    private AbstractSprintState state = new NotStartedState(this);
     private final ArrayList<BacklogItem> backlogItems = new ArrayList<>();
     private final ArrayList<Developer> developers = new ArrayList<>();
     private IFinishBehaviour finishBehaviour;
@@ -21,8 +21,8 @@ public class Sprint {
 
     public Sprint() {}
     /* GETTERS */
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
     public String getDescription() {
         return description;
@@ -47,20 +47,30 @@ public class Sprint {
     }
 
     /* SETTERS */
-    public void setName(String name) {
-        this.name = name;
+    public void setState(AbstractSprintState state) {
+        if (this.state != null) {
+            this.state.dispose();
+        }
+        this.state = state;
+    }
+    public void setTitle(String title) {
+        this.title=title;
+    }
+    public void setTitle_State(String title){
+        this.state.setTitle(title);
     }
     public void setDescription(String description) {
         this.description = description;
     }
-    public void setState(AbstractSprintState state) {
-        this.state = state;
+    public void  setDescription_State(String description){
+        this.state.setDescription(description);
     }
+
     public void addBacklogItem(BacklogItem backlogItem) {
-        backlogItems.add(backlogItem);
+        this.state.addBacklogItem(backlogItem);
     }
     public void removeBacklogItem(BacklogItem backlogItem) {
-        backlogItems.remove(backlogItem);
+        this.state.removeBacklogItem(backlogItem);
     }
     public void addDeveloper(Developer developer) {
         developers.add(developer);
@@ -81,9 +91,9 @@ public class Sprint {
     /* METHODS */
     // State Methods
     public void start() {
-        state.start(this);
+        state.start();
     }
     public void performFinish() {
-        state.performFinish(this);
+        state.performFinish();
     }
 }

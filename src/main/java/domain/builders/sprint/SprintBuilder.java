@@ -35,7 +35,7 @@ public class SprintBuilder implements IBuilder {
     }
 
     public Sprint build() {
-        sprint.setName("New Sprint");
+        sprint.setTitle("New Sprint");
         sprint.setDescription("A newly created sprint!");
         Sprint result = sprint;
         this.reset();
