@@ -32,10 +32,12 @@ public class NotStartedState extends AbstractSprintState {
 
     @Override
     public void addBacklogItem(BacklogItem backlogItem) {
+        backlogItem.setCurrentSprint(sprint);
         sprint.getBacklogItems().add(backlogItem);
     }
     @Override
     public void removeBacklogItem(BacklogItem backlogItem) {
+        backlogItem.setCurrentSprint(null);
         sprint.getBacklogItems().remove(backlogItem);
     }
 

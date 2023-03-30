@@ -1,5 +1,7 @@
 package domain.observers.backlogItem;
 
+import domain.BacklogItem;
+
 import java.util.ArrayList;
 
 public class Publisher {
@@ -14,15 +16,17 @@ public class Publisher {
     /* SETTERS */
 
     /* METHODS */
-    private void subscribe(ISubscriber subscriber) {
-
+    public void subscribe(ISubscriber subscriber) {
+        subscribers.add(subscriber);
     }
 
-    private void unsubscribe(ISubscriber subscriber) {
-
+    public void unsubscribe(ISubscriber subscriber) {
+        subscribers.remove(subscriber);
     }
 
-    private void notifySubscribers() {
-
+    public void notifySubscribers(BacklogItem backlogItem){
+        for (ISubscriber subscriber: subscribers){
+            subscriber.update(backlogItem);
+        }
     }
 }

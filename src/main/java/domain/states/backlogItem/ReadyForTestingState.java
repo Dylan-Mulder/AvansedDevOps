@@ -38,6 +38,7 @@ public class ReadyForTestingState extends AbstractBacklogItemState {
 
     public void moveForward(BacklogItem backlogItem) {
         logger.log(Level.INFO, "Moved " + backlogItem.getName() + " to: Testing");
+        backlogItem.setDevelopersToNotify(null);
         backlogItem.setState(new TestingState());
     }
 

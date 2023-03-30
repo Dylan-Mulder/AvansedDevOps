@@ -1,5 +1,6 @@
 package domain;
 
+import domain.observers.backlogItem.Publisher;
 import domain.states.backlogItem.AbstractBacklogItemState;
 import domain.states.backlogItem.InBacklogState;
 
@@ -12,10 +13,17 @@ public class BacklogItem {
     private AbstractBacklogItemState state = new InBacklogState();
     private final ArrayList<Task> tasks = new ArrayList<>();
 
+    private ArrayList<Developer> developersToNotify = new ArrayList<>();
+
+    private Sprint currentSprint;
+
+    private Publisher publisher;
+
     /* CONSTRUCTORS */
     public BacklogItem(String name, String description) {
         this.name = name;
         this.description = description;
+        this.publisher = new Publisher();
     }
 
     /* GETTERS */
@@ -32,6 +40,20 @@ public class BacklogItem {
         return tasks;
     }
 
+    public ArrayList<Developer> getDevelopersToNotify() {
+        return developersToNotify;
+    }
+
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public Sprint getCurrentSprint() {
+        return currentSprint;
+    }
+
+
+
     /* SETTERS */
     public void setName(String name) {
         this.name = name;
@@ -47,6 +69,13 @@ public class BacklogItem {
     }
     public void removeTask(Task task) {
         tasks.remove(task);
+    }
+    public void setDevelopersToNotify(ArrayList<Developer> developers){
+        this.developersToNotify= developers;
+    }
+
+    public void setCurrentSprint(Sprint currentSprint) {
+        this.currentSprint = currentSprint;
     }
 
     /* METHODS */
