@@ -15,6 +15,7 @@ public class Job extends CompositeComponent {
     /* METHODS */
     @Override
     public void acceptVisitor(AbstractVisitor visitor) {
+        visitor.visitJob(this);
         super.acceptVisitor(visitor);
     }
 }

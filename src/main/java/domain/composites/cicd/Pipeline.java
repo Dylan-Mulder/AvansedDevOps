@@ -15,6 +15,7 @@ public class Pipeline extends CompositeComponent {
     /* METHODS */
     @Override
     public void acceptVisitor(AbstractVisitor visitor) {
+        visitor.visitPipeline(this);
         super.acceptVisitor(visitor);
     }
 }

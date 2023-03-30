@@ -15,6 +15,7 @@ public class Stage extends CompositeComponent {
     /* METHODS */
     @Override
     public void acceptVisitor(AbstractVisitor visitor) {
+        visitor.visitStage(this);
         super.acceptVisitor(visitor);
     }
 }

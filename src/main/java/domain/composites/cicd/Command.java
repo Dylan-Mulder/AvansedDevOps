@@ -15,6 +15,6 @@ public class Command extends AbstractComponent {
     /* METHODS */
     @Override
     public void acceptVisitor(AbstractVisitor visitor) {
-
+        visitor.visitCommand(this);
     }
 }
