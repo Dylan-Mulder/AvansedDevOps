@@ -8,11 +8,11 @@ public class Job extends CompositeComponent {
     /* CONSTRUCTORS */
     public Job(String name) {
         setName(name);
-        setDescription("No description provided");
+        setContent("");
     }
-    public Job(String name, String description) {
+    public Job(String name, String content) {
         setName(name);
-        setDescription(description);
+        setContent(content);
     }
 
     /* GETTERS */

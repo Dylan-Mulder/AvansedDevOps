@@ -6,13 +6,9 @@ public class Command extends AbstractComponent {
     /* ATTRIBUTES */
 
     /* CONSTRUCTORS */
-    public Command(String name) {
+    public Command(String name, String content) {
         setName(name);
-        setDescription("No description provided");
-    }
-    public Command(String name, String description) {
-        setName(name);
-        setDescription(description);
+        setContent(content);
     }
 
     /* GETTERS */

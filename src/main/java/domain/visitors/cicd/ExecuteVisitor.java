@@ -1,9 +1,6 @@
 package domain.visitors.cicd;
 
-import domain.composites.cicd.Command;
-import domain.composites.cicd.Job;
-import domain.composites.cicd.Pipeline;
-import domain.composites.cicd.Stage;
+import domain.composites.cicd.*;
 
 public class ExecuteVisitor extends AbstractVisitor {
     /* ATTRIBUTES */
@@ -18,21 +15,27 @@ public class ExecuteVisitor extends AbstractVisitor {
     /* METHODS */
     @Override
     public void visitPipeline(Pipeline pipeline) {
-
+        execute(pipeline);
     }
 
     @Override
     public void visitStage(Stage stage) {
-
+        execute(stage);
     }
 
     @Override
     public void visitJob(Job job) {
-
+        execute(job);
     }
 
     @Override
     public void visitCommand(Command command) {
+        execute(command);
+    }
 
+    public void execute(AbstractComponent component) {
+        System.out.println("/||\\ EXECUTING: " + component.getClass().getSimpleName() + " | " + component.getName() + " /||\\");
+        if (!component.getContent().isEmpty()) System.out.println("~~ " + component.getContent());
+        System.out.println("\n");
     }
 }

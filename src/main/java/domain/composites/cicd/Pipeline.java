@@ -8,11 +8,11 @@ public class Pipeline extends CompositeComponent {
     /* CONSTRUCTORS */
     public Pipeline(String name) {
         setName(name);
-        setDescription("No description provided");
+        setContent("");
     }
-    public Pipeline(String name, String description) {
+    public Pipeline(String name, String content) {
         setName(name);
-        setDescription(description);
+        setContent(content);
     }
 
     /* GETTERS */

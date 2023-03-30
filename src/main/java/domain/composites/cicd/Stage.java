@@ -8,11 +8,11 @@ public class Stage extends CompositeComponent {
     /* CONSTRUCTORS */
     public Stage(String name) {
         setName(name);
-        setDescription("No description provided");
+        setContent("");
     }
-    public Stage(String name, String description) {
+    public Stage(String name, String content) {
         setName(name);
-        setDescription(description);
+        setContent(content);
     }
 
     /* GETTERS */
