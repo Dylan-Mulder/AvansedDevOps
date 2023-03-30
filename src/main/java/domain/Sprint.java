@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class Sprint {
     /* ATTRIBUTES */
-    private String title;
+    private String name;
     private String description;
     private AbstractSprintState state = new NotStartedState(this);
     private final ArrayList<BacklogItem> backlogItems = new ArrayList<>();
@@ -24,8 +24,8 @@ public class Sprint {
     public Sprint() {}
 
     /* GETTERS */
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
     public String getDescription() {
         return description;
@@ -62,11 +62,11 @@ public class Sprint {
         }
         this.state = state;
     }
-    public void setTitle(String title) {
-        this.title=title;
+    public void setName(String name) {
+        this.name = name;
     }
-    public void setTitle_State(String title){
-        this.state.setTitle(title);
+    public void setName_State(String name){
+        this.state.setName(name);
     }
     public void setDescription(String description) {
         this.description = description;

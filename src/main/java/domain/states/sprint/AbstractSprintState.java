@@ -21,7 +21,7 @@ public abstract class AbstractSprintState {
     /* GETTERS */
 
     /* SETTERS */
-    abstract public void setTitle(String title);
+    abstract public void setName(String name);
     abstract public void setDescription(String description);
     abstract public void addBacklogItem(BacklogItem backlogItem);
     abstract public void removeBacklogItem(BacklogItem backlogItem);

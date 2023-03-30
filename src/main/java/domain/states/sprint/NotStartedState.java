@@ -21,12 +21,12 @@ public class NotStartedState extends AbstractSprintState {
 
     /* SETTERS */
     @Override
-    public void setTitle(String title) {
-        sprint.setTitle(title);
+    public void setName(String name) {
+        sprint.setName(name);
     }
     @Override
     public void setDescription(String description) {
-        sprint.setTitle(description);
+        sprint.setName(description);
     }
 
 

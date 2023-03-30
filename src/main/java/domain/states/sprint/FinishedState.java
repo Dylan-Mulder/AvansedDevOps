@@ -14,7 +14,7 @@ public class FinishedState extends AbstractSprintState {
     }
 
     @Override
-    public void setTitle(String title) {
+    public void setName(String name) {
         logger.log(Level.WARNING, "Can't update information of a sprint after it's started!");
     }
     @Override
