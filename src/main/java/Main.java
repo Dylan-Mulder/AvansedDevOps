@@ -1,19 +1,20 @@
 import domain.BacklogItem;
 import domain.Sprint;
-import domain.builders.sprint.Director;
-import domain.builders.sprint.IBuilder;
-import domain.builders.sprint.SprintBuilder;
+import domain.strategies.sprint.FinishRelease;
 
 public class Main {
     public static void main(String[] args) {
-        Director director = new Director();
+        System.out.println("Hello world!");
+        BacklogItem bi = new BacklogItem("Title", "Bla bla");
+        BacklogItem bi2 = new BacklogItem("augh", "Bla bla");
+        //bi.moveBackward();
+        //bi.moveForward();
 
-        SprintBuilder builder = new SprintBuilder();
-        director.buildLongReleaseSprint(builder);
-        Sprint sprint = builder.build();
-
-        System.out.println(sprint.getName() + " | " + sprint.getDescription());
-        System.out.println(sprint.getStartDate());
-        System.out.println(sprint.getEndDate());
+        Sprint s = new Sprint();
+        s.setFinishBehaviour(new FinishRelease());
+        s.addBacklogItem(bi2);
+        System.out.println(s.getBacklogItems().get(0).getName());
+        s.start();
+        s.performFinish();
     }
 }
