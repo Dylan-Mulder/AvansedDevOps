@@ -6,7 +6,14 @@ public class Stage extends CompositeComponent {
     /* ATTRIBUTES */
 
     /* CONSTRUCTORS */
-    public Stage() {}
+    public Stage(String name) {
+        setName(name);
+        setDescription("No description provided");
+    }
+    public Stage(String name, String description) {
+        setName(name);
+        setDescription(description);
+    }
 
     /* GETTERS */
 

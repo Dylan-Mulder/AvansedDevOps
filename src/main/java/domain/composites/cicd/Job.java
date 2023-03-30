@@ -6,7 +6,14 @@ public class Job extends CompositeComponent {
     /* ATTRIBUTES */
 
     /* CONSTRUCTORS */
-    public Job() {}
+    public Job(String name) {
+        setName(name);
+        setDescription("No description provided");
+    }
+    public Job(String name, String description) {
+        setName(name);
+        setDescription(description);
+    }
 
     /* GETTERS */
 

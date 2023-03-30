@@ -6,7 +6,14 @@ public class Pipeline extends CompositeComponent {
     /* ATTRIBUTES */
 
     /* CONSTRUCTORS */
-    public Pipeline() {}
+    public Pipeline(String name) {
+        setName(name);
+        setDescription("No description provided");
+    }
+    public Pipeline(String name, String description) {
+        setName(name);
+        setDescription(description);
+    }
 
     /* GETTERS */
 
