@@ -4,6 +4,7 @@ import domain.states.sprint.AbstractSprintState;
 import domain.states.sprint.NotStartedState;
 import domain.strategies.sprint.IFinishBehaviour;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Sprint {
@@ -15,11 +16,13 @@ public class Sprint {
     private final ArrayList<Developer> developers = new ArrayList<>();
     private IFinishBehaviour finishBehaviour;
     private int duration;
+    private LocalDate startDate;
+    private LocalDate endDate;
     private Developer scrumMaster;
 
     /* CONSTRUCTORS */
-
     public Sprint() {}
+
     /* GETTERS */
     public String getName() {
         return name;
@@ -41,6 +44,12 @@ public class Sprint {
     }
     public int getDuration() {
         return duration;
+    }
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+    public LocalDate getEndDate() {
+        return endDate;
     }
     public Developer getScrumMaster() {
         return scrumMaster;
@@ -73,6 +82,12 @@ public class Sprint {
     }
     public void setDuration(int duration) {
         this.duration = duration;
+    }
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
     }
     public void setScrumMaster(Developer scrumMaster) {
         this.scrumMaster = scrumMaster;

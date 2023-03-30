@@ -1,8 +1,9 @@
 package domain.builders.sprint;
 
-import domain.Developer;
 import domain.Sprint;
 import domain.strategies.sprint.IFinishBehaviour;
+
+import java.time.LocalDate;
 
 public class SprintBuilder implements IBuilder {
     /* ATTRIBUTES */
@@ -18,25 +19,29 @@ public class SprintBuilder implements IBuilder {
     public void reset() {
         sprint = new Sprint();
     }
-
+    @Override
+    public void setName(String name) {
+        sprint.setName(name);
+    }
+    @Override
+    public void setDescription(String description) {
+        sprint.setDescription(description);
+    }
     @Override
     public void setType(IFinishBehaviour finishBehaviour) {
         sprint.setFinishBehaviour(finishBehaviour);
     }
-
     @Override
     public void setDuration(int weeks) {
         sprint.setDuration(weeks);
     }
-
     @Override
-    public void setScrumMaster(Developer developer) {
-        sprint.setScrumMaster(developer);
+    public void setStartDate(LocalDate date) {
+        sprint.setStartDate(date);
+        sprint.setEndDate(date.plusWeeks(sprint.getDuration()));
     }
 
     public Sprint build() {
-        sprint.setName("New Sprint");
-        sprint.setDescription("A newly created sprint!");
         Sprint result = sprint;
         this.reset();
         return result;
