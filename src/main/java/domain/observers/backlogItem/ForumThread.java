@@ -42,7 +42,9 @@ public class ForumThread implements ISubscriber {
     }
     @Override
     public void update(BacklogItem backlogItem) {
-        addPost(backlogItem);
-        this.backlogItem=backlogItem;
+        if (backlogItem.getName() == this.backlogItem.getName()){
+            addPost(backlogItem);
+            this.backlogItem=backlogItem;
+        }
     }
 }
