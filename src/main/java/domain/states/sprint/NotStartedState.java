@@ -26,7 +26,7 @@ public class NotStartedState extends AbstractSprintState {
     }
     @Override
     public void setDescription(String description) {
-        sprint.setName(description);
+        sprint.setDescription(description);
     }
 
 
