@@ -5,6 +5,7 @@ import domain.BacklogItem;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class ForumThread implements ISubscriber {
     /* ATTRIBUTES */
@@ -42,7 +43,7 @@ public class ForumThread implements ISubscriber {
     }
     @Override
     public void update(BacklogItem backlogItem) {
-        if (backlogItem.getName() == this.backlogItem.getName()){
+        if (Objects.equals(backlogItem.getName(), this.backlogItem.getName())){
             addPost(backlogItem);
             this.backlogItem=backlogItem;
         }
