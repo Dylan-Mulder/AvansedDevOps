@@ -10,7 +10,6 @@ public abstract class AbstractComponent {
     /* ATTRIBUTES */
     private final Logger logger = Logger.getLogger(InBacklogState.class.getName());
     private String name;
-    private String content;
 
     /* CONSTRUCTORS */
     public AbstractComponent() {
@@ -21,16 +20,10 @@ public abstract class AbstractComponent {
     public String getName() {
         return name;
     }
-    public String getContent() {
-        return content;
-    }
 
     /* SETTERS */
     public void setName(String name) {
         this.name = name;
-    }
-    public void setContent(String content) {
-        this.content = content;
     }
 
     /* METHODS */

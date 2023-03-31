@@ -4,20 +4,26 @@ import domain.visitors.cicd.AbstractVisitor;
 
 public class Pipeline extends CompositeComponent {
     /* ATTRIBUTES */
+    private String description;
 
     /* CONSTRUCTORS */
     public Pipeline(String name) {
         setName(name);
-        setContent("");
+        setDescription("");
     }
-    public Pipeline(String name, String content) {
+    public Pipeline(String name, String description) {
         setName(name);
-        setContent(content);
+        setDescription(description);
     }
 
     /* GETTERS */
-
+    public String getDescription() {
+        return description;
+    }
     /* SETTERS */
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     /* METHODS */
     @Override
