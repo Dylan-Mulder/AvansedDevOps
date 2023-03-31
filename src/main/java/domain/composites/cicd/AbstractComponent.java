@@ -8,7 +8,8 @@ import java.util.logging.Logger;
 
 public abstract class AbstractComponent {
     /* ATTRIBUTES */
-    Logger logger = Logger.getLogger(InBacklogState.class.getName());
+    private final Logger logger = Logger.getLogger(InBacklogState.class.getName());
+    private String name;
 
     /* CONSTRUCTORS */
     public AbstractComponent() {
@@ -16,8 +17,14 @@ public abstract class AbstractComponent {
     }
 
     /* GETTERS */
+    public String getName() {
+        return name;
+    }
 
     /* SETTERS */
+    public void setName(String name) {
+        this.name = name;
+    }
 
     /* METHODS */
     abstract public void acceptVisitor(AbstractVisitor visitor);
