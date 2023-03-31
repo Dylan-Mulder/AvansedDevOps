@@ -1,11 +1,10 @@
 package domain.builders.sprint;
 
-import domain.Developer;
 import domain.strategies.sprint.IFinishBehaviour;
 
 import java.time.LocalDate;
 
-public interface IBuilder {
+public interface ISprintBuilder {
     void reset();
     void setName(String name);
     void setDescription(String description);

@@ -4,16 +4,15 @@ import domain.strategies.sprint.FinishRelease;
 import domain.strategies.sprint.FinishReview;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
-public class Director {
+public class SprintDirector {
     /* ATTRIBUTES */
 
     /* CONSTRUCTORS */
-    public Director() {}
+    public SprintDirector() {}
 
     /* METHODS */
-    public void buildStandardReleaseSprint(IBuilder builder) {
+    public void buildStandardReleaseSprint(ISprintBuilder builder) {
         builder.reset();
         builder.setName("New Standard Release Sprint");
         builder.setDescription("A Release Sprint of 2 weeks");
@@ -22,7 +21,7 @@ public class Director {
         builder.setStartDate(LocalDate.now().plusWeeks(1));
     }
 
-    public void buildLongReleaseSprint(IBuilder builder) {
+    public void buildLongReleaseSprint(ISprintBuilder builder) {
         builder.reset();
         builder.setName("New Long Release Sprint");
         builder.setDescription("A Release Sprint of 4 weeks");
@@ -31,7 +30,7 @@ public class Director {
         builder.setStartDate(LocalDate.now().plusWeeks(1));
     }
 
-    public void buildStandardReviewSprint(IBuilder builder) {
+    public void buildStandardReviewSprint(ISprintBuilder builder) {
         builder.reset();
         builder.setName("New Standard Review Sprint");
         builder.setDescription("A Review Sprint of 2 weeks");
@@ -40,7 +39,7 @@ public class Director {
         builder.setStartDate(LocalDate.now().plusWeeks(1));
     }
 
-    public void buildLongReviewSprint(IBuilder builder) {
+    public void buildLongReviewSprint(ISprintBuilder builder) {
         builder.reset();
         builder.setName("New Long Review Sprint");
         builder.setDescription("A Review Sprint of 4 weeks");

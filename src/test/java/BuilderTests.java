@@ -1,5 +1,5 @@
 import domain.Sprint;
-import domain.builders.sprint.Director;
+import domain.builders.sprint.SprintDirector;
 import domain.builders.sprint.SprintBuilder;
 import domain.strategies.sprint.FinishRelease;
 import domain.strategies.sprint.FinishReview;
@@ -15,13 +15,13 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class BuilderTests {
     /* ATTRIBUTES */
-    private Director director;
+    private SprintDirector sprintDirector;
     private SprintBuilder sprintBuilder;
 
     /* DATA MANAGEMENT */
     @BeforeAll
     public void setupMockData() {
-        director = new Director();
+        sprintDirector = new SprintDirector();
         sprintBuilder = new SprintBuilder();
     }
 
@@ -33,7 +33,7 @@ public class BuilderTests {
     /* TESTS */
     @Test
     public void checkIfSprintIsStandardRelease() {
-        director.buildStandardReleaseSprint(sprintBuilder);
+        sprintDirector.buildStandardReleaseSprint(sprintBuilder);
         Sprint sprint = sprintBuilder.build();
 
         assertAll(
@@ -49,7 +49,7 @@ public class BuilderTests {
 
     @Test
     public void checkIfSprintIsLongRelease() {
-        director.buildLongReleaseSprint(sprintBuilder);
+        sprintDirector.buildLongReleaseSprint(sprintBuilder);
         Sprint sprint = sprintBuilder.build();
 
         assertAll(
@@ -65,7 +65,7 @@ public class BuilderTests {
 
     @Test
     public void checkIfSprintIsStandardReview() {
-        director.buildStandardReviewSprint(sprintBuilder);
+        sprintDirector.buildStandardReviewSprint(sprintBuilder);
         Sprint sprint = sprintBuilder.build();
 
         assertAll(
@@ -81,7 +81,7 @@ public class BuilderTests {
 
     @Test
     public void checkIfSprintIsLongReview() {
-        director.buildLongReviewSprint(sprintBuilder);
+        sprintDirector.buildLongReviewSprint(sprintBuilder);
         Sprint sprint = sprintBuilder.build();
 
         assertAll(

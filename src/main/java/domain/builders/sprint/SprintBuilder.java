@@ -5,7 +5,7 @@ import domain.strategies.sprint.IFinishBehaviour;
 
 import java.time.LocalDate;
 
-public class SprintBuilder implements IBuilder {
+public class SprintBuilder implements ISprintBuilder {
     /* ATTRIBUTES */
     private Sprint sprint;
 

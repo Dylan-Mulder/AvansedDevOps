@@ -24,7 +24,7 @@ public class ExecuteVisitor extends AbstractVisitor {
     public void visitStage(Stage stage) {
         System.out.print("\n");
         System.out.print(ConsoleColours.YELLOW_BRIGHT + "[ " + ConsoleColours.BLUE_BRIGHT + stage.getName() + ConsoleColours.YELLOW_BRIGHT + " ]");
-        if (!stage.getDescription().isEmpty()) System.out.print(" | " + stage.getDescription() + "\n");
+        if (!stage.getDescription().isEmpty()) System.out.print(" | " + stage.getDescription());
         System.out.print("\n");
     }
 
@@ -38,7 +38,7 @@ public class ExecuteVisitor extends AbstractVisitor {
 
     @Override
     public void visitCommand(Command command) {
-        System.out.println("~~ EXECUTING COMMAND: " + command.getName().toUpperCase());
+        System.out.println("~~ EXECUTING COMMAND: " + command.getName());
         for (String outputLine : command.getOutputLines()) {
             System.out.println("~~ " + outputLine);
         }

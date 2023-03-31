@@ -3,14 +3,16 @@ package domain.composites.cicd;
 import domain.visitors.cicd.AbstractVisitor;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Command extends AbstractComponent {
     /* ATTRIBUTES */
-    private ArrayList<String> outputLines = new ArrayList<>();
+    private final ArrayList<String> outputLines = new ArrayList<>();
 
     /* CONSTRUCTORS */
-    public Command(String name) {
+    public Command(String name, String[] outputLines) {
         setName(name);
+        bulkAddOutputLines(outputLines);
     }
 
     /* GETTERS */
@@ -20,6 +22,9 @@ public class Command extends AbstractComponent {
     /* SETTERS */
     public void addOutputLine(String outputLine) {
         outputLines.add(outputLine);
+    }
+    public void bulkAddOutputLines(String[] toBeAddedOutputLines) {
+        outputLines.addAll(Arrays.asList(toBeAddedOutputLines));
     }
     public void removeOutputLine(String outputLine) {
         outputLines.remove(outputLine);
