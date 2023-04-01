@@ -90,18 +90,16 @@ public class Project {
                 "State of sprint: " + sprint.getState().getStateName() + "\n" +
                 "Total number of Developers: " + sprint.getDevelopers().size() + "\n" +
                 "Total number of BacklogItems: " + backlogItems.size() + "\n" +
-                "Containing a total of " + tasks.size() + "tasks," + "\n" +
+                "Containing a total of " + tasks.size() + " tasks," + "\n" +
                 "of which " + sprintReport_TasksCompleted(tasks) + " have been completed." + "\n" +
-                "The end date of this sprint is: " + sprint.getEndDate().toString() + "\n";
+                "The end date of this sprint is: " + sprint.getEndDate().toString();
 
         return report;
     }
     public ArrayList<Task> sprintReport_Tasks(ArrayList<BacklogItem> backlogItems){
         ArrayList<Task> tasks = new ArrayList<>();
         for (BacklogItem backlogItem : backlogItems){
-            for (Task task : backlogItem.getTasks()){
-                tasks.add(task);
-            }
+            tasks.addAll(backlogItem.getTasks());
         }
         return tasks;
     }

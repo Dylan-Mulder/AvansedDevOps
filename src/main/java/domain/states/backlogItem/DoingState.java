@@ -40,13 +40,14 @@ public class DoingState extends AbstractBacklogItemState {
 
     public void moveForward(BacklogItem backlogItem) {
         logger.log(Level.INFO, "Moved " + backlogItem.getName() + " to: Ready For Testing");
-        boolean isFinished = true;
+        boolean isFinished = !backlogItem.getTasks().isEmpty();
         for(Task task: backlogItem.getTasks()){
-            if (!task.isFinished()){
-                isFinished=false;
+            if (!task.isFinished()) {
+                isFinished = false;
+                break;
             }
         }
-        if (!isFinished==false) {
+        if (isFinished) {
             setUpReceivers(backlogItem);
             //update state
             backlogItem.setState(new ReadyForTestingState());
