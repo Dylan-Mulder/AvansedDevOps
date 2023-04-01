@@ -5,7 +5,11 @@ import domain.states.sprint.NotStartedState;
 import domain.strategies.sprint.IFinishBehaviour;
 
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Sprint {
     /* ATTRIBUTES */
@@ -19,6 +23,7 @@ public class Sprint {
     private LocalDate startDate;
     private LocalDate endDate;
     private Developer scrumMaster;
+    private Timer timer;
 
     /* CONSTRUCTORS */
     public Sprint() {}
@@ -98,6 +103,15 @@ public class Sprint {
     }
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
+        this.timer = new Timer();
+        this.timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                performFinish();
+            }
+        }, Date.from(endDate
+            .atStartOfDay(ZoneId.systemDefault())
+            .toInstant()));
     }
     public void setScrumMaster(Developer scrumMaster) {
         this.scrumMaster = scrumMaster;
