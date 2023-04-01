@@ -84,7 +84,7 @@ public class BacklogItem {
         state.changeName(this, name);
     }
     public void changeDescription(String description) {
-        state.changeDescription(this, name);
+        state.changeDescription(this, description);
     }
     public void changeTasksAdd(Task task) {
         state.changeTasksAdd(this, task);
