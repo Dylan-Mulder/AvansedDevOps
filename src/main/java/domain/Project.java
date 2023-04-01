@@ -113,7 +113,7 @@ public class Project {
     }
 
     public void exportReport(String report, String preferredType){
-        if (preferredType == "System"){
+        if (preferredType.equals("System")){
             System.out.println(report);
         }
         //Open for more export types.
