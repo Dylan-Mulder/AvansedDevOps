@@ -13,6 +13,22 @@ public class FinishedState extends AbstractSprintState {
         super(sprint);
     }
 
+
+
+    /* GETTERS */
+    public String getStateName(){
+        return "Finished";
+    }
+    /* SETTERS */
+
+    /* METHODS */
+    public void start() {
+        logger.log(Level.WARNING, "Can't restart a finished sprint!");
+    }
+
+    public void performFinish() {
+        logger.log(Level.WARNING, "Sprint has already finished.");
+    }
     @Override
     public void setName(String name) {
         logger.log(Level.WARNING, "Can't update information of a sprint after it's started!");
@@ -30,18 +46,5 @@ public class FinishedState extends AbstractSprintState {
     @Override
     public void removeBacklogItem(BacklogItem backlogItem) {
         logger.log(Level.WARNING, "Can't remove backlog items from a sprint after it's started!");
-    }
-
-    /* GETTERS */
-
-    /* SETTERS */
-
-    /* METHODS */
-    public void start() {
-        logger.log(Level.WARNING, "Can't restart a finished sprint!");
-    }
-
-    public void performFinish() {
-        logger.log(Level.WARNING, "Sprint has already finished.");
     }
 }

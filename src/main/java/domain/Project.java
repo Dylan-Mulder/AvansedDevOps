@@ -1,5 +1,7 @@
 package domain;
 
+import jdk.javadoc.doclet.Reporter;
+
 import java.util.ArrayList;
 
 public class Project {
@@ -14,6 +16,7 @@ public class Project {
     public Project(Developer projectLead){
         this.projectLead = projectLead;
     };
+
     /* Getters */
 
     public String getName() {
@@ -39,6 +42,7 @@ public class Project {
     public Developer getProjectLead() {
         return projectLead;
     }
+
     /* Setters */
 
     public void setName(String name) {
@@ -79,5 +83,39 @@ public class Project {
         this.developers.remove(developer);
     }
 
+    public String sprintReport(Sprint sprint, String businessName){
+        ArrayList<BacklogItem> backlogItems = sprint.getBacklogItems();
+        ArrayList<Task> tasks = sprintReport_Tasks(backlogItems);
+        String report = "Sprint Report generated for: "+businessName +"\n"+
+                "State of sprint: " + sprint.getState().getStateName() + "\n" +
+                "Total number of Developers: " + sprint.getDevelopers().size() + "\n" +
+                "Total number of BacklogItems: " + backlogItems.size() + "\n" +
+                "Containing a total of " + tasks.size() + "tasks," + "\n" +
+                "of which " + sprintReport_TasksCompleted(tasks) + " have been completed." + "\n" +
+                "The end date of this sprint is: " + sprint.getEndDate().toString() + "\n";
 
+        return report;
+    }
+    public ArrayList<Task> sprintReport_Tasks(ArrayList<BacklogItem> backlogItems){
+        ArrayList<Task> tasks = new ArrayList<>();
+        for (BacklogItem backlogItem : backlogItems){
+            for (Task task : backlogItem.getTasks()){
+                tasks.add(task);
+            }
+        }
+        return tasks;
+    }
+
+    public int sprintReport_TasksCompleted(ArrayList<Task> tasks){
+        int amt =0;
+        for (Task task : tasks) if (task.isFinished()) amt++;
+        return amt;
+    }
+
+    public void exportReport(String report, String preferredType){
+        if (preferredType == "System"){
+            System.out.println(report);
+        }
+        //Open for more export types.
+    }
 }

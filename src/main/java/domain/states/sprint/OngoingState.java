@@ -16,7 +16,9 @@ public class OngoingState extends AbstractSprintState {
 
 
     /* GETTERS */
-
+    public String getStateName(){
+        return "Ongoing";
+    }
     /* SETTERS */
     @Override
     public void setName(String name) {

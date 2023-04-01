@@ -18,7 +18,9 @@ public class NotStartedState extends AbstractSprintState {
 
 
     /* GETTERS */
-
+    public String getStateName(){
+        return "Not Started";
+    }
     /* SETTERS */
     @Override
     public void setName(String name) {
