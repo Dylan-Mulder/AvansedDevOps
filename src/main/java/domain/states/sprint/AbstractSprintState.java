@@ -19,6 +19,7 @@ public abstract class AbstractSprintState {
     }
 
     /* GETTERS */
+    abstract  public String getStateName();
 
     /* SETTERS */
     abstract public void setName(String name);
