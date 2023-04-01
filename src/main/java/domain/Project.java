@@ -55,27 +55,27 @@ public class Project {
     }
 
     /* Methods */
-    public void addBacklogItems(BacklogItem backlogItem) {
+    public void addBacklogItem(BacklogItem backlogItem) {
         this.backlogItems.add(backlogItem);
     }
 
-    public void addSprints(Sprint sprint) {
+    public void addSprint(Sprint sprint) {
         this.sprints.add(sprint);
     }
 
-    public void addDevelopers(Developer developer) {
+    public void addDeveloper(Developer developer) {
         this.developers.add(developer);
     }
 
-    public void removeBacklogItems(BacklogItem backlogItem) {
+    public void removeBacklogItem(BacklogItem backlogItem) {
         this.backlogItems.remove(backlogItem);
     }
 
-    public void removeSprints(Sprint sprint) {
+    public void removeSprint(Sprint sprint) {
         this.sprints.remove(sprint);
     }
 
-    public void removeDevelopers(Developer developer) {
+    public void removeDeveloper(Developer developer) {
         this.developers.remove(developer);
     }
 
