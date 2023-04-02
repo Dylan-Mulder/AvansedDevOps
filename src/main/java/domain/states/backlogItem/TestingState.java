@@ -49,21 +49,13 @@ public class TestingState extends AbstractBacklogItemState {
     }
 
     public void setUpReceiversToDo(BacklogItem backlogItem){
-        ArrayList<Developer> developers = backlogItem.getCurrentSprint().getDevelopers();
         ArrayList<Task> tasks = backlogItem.getTasks();
         ArrayList<Developer> receivers = new ArrayList<>();
         Developer d;
         for (Task task: tasks){
             d = task.getCurrentDeveloper();
-            if(!receivers.contains(d)){
+            if(!receivers.contains(d)&&d.isLeadDeveloper()){
                 receivers.add(d);
-            }
-        }
-        for (Developer developer: developers){
-            if (developer.isLeadDeveloper()){
-                if(!receivers.contains(developer)){
-                    receivers.add(developer);
-                }
             }
         }
         backlogItem.setDevelopersToNotify(receivers);

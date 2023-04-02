@@ -59,25 +59,16 @@ public class DoingState extends AbstractBacklogItemState {
         logger.log(Level.WARNING, "Can't move backwards now!");
     }
     public void setUpReceivers(BacklogItem backlogItem){
-        ArrayList<Developer> developers = backlogItem.getCurrentSprint().getDevelopers();
         ArrayList<Task> tasks = backlogItem.getTasks();
         ArrayList<Developer> receivers = new ArrayList<>();
         Developer d;
         for (Task task: tasks){
             d = task.getCurrentDeveloper();
-            if(!receivers.contains(d)){
+            if(!receivers.contains(d)&&d.isTester()){
                 receivers.add(d);
-            }
-        }
-        for (Developer developer: developers){
-            if (developer.isTester()){
-                if(!receivers.contains(developer)){
-                    receivers.add(developer);
-                }
             }
         }
         backlogItem.setDevelopersToNotify(receivers);
     }
-
 
 }

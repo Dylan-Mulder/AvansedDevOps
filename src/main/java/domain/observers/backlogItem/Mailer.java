@@ -4,7 +4,6 @@ import domain.BacklogItem;
 import domain.Developer;
 import domain.Task;
 
-import javax.sound.midi.Receiver;
 import java.util.ArrayList;
 
 public class Mailer implements ISubscriber {
@@ -17,6 +16,10 @@ public class Mailer implements ISubscriber {
     }
     /* GETTERS */
 
+    public ArrayList<Developer> getReceivers() {
+        return receivers;
+    }
+
     /* SETTERS */
 
     /* METHODS */
@@ -25,7 +28,7 @@ public class Mailer implements ISubscriber {
 
         this.backlogItem = backlogItem;
         //Set up receivers
-        receivers = backlogItem.getDevelopersToNotify();
+        receivers = this.backlogItem.getDevelopersToNotify();
         //Send mail based on new BacklogItem
     }
 }

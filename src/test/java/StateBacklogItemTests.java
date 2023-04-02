@@ -19,12 +19,12 @@ public class StateBacklogItemTests {
     BacklogItem backlogItem;
     Task task1;
     Task task2;
-    Task task3;
     Developer developer1;
     Developer developer2;
     Sprint sprint;
-    private SprintDirector director;
-    private SprintBuilder sprintBuilder;
+    SprintDirector director;
+    SprintBuilder sprintBuilder;
+
     /* DATA MANAGEMENT */
     @BeforeAll
     public void setupMockData() {
@@ -413,5 +413,69 @@ public class StateBacklogItemTests {
         assertTrue(backlogItem.getTasks().contains(task1));
         assertTrue(backlogItem.getTasks().contains(task2));
     }
+
+    @Test
+    public void checkGetDevelopersToNotify(){
+        task1.setIsFinished(true);
+        task2.setIsFinished(true);
+        task1.setCurrentDeveloper(developer1);
+        task2.setCurrentDeveloper(developer2);
+
+        backlogItem.addTask(task1);
+        backlogItem.addTask(task2);
+        //InBacklog
+
+        assertFalse(backlogItem.getDevelopersToNotify().contains(developer2));
+        assertFalse(backlogItem.getDevelopersToNotify().contains(developer1));
+
+        backlogItem.moveForward();
+        //ToDoState
+        assertFalse(backlogItem.getDevelopersToNotify().contains(developer2));
+        assertFalse(backlogItem.getDevelopersToNotify().contains(developer1));
+
+        //Backstep
+        backlogItem.moveBackward();
+        assertFalse(backlogItem.getDevelopersToNotify().contains(developer2));
+        assertFalse(backlogItem.getDevelopersToNotify().contains(developer1));
+        backlogItem.moveForward();
+        backlogItem.moveForward();
+        //Doing
+        assertFalse(backlogItem.getDevelopersToNotify().contains(developer2));
+        assertFalse(backlogItem.getDevelopersToNotify().contains(developer1));
+        backlogItem.moveForward();
+
+        //ReadyForTesting
+        assertTrue(backlogItem.getDevelopersToNotify().contains(developer2));
+        assertFalse(backlogItem.getDevelopersToNotify().contains(developer1));
+        backlogItem.moveForward();
+        //Testing
+        assertFalse(backlogItem.getDevelopersToNotify().contains(developer2));
+        assertFalse(backlogItem.getDevelopersToNotify().contains(developer1));
+        //Backstep
+        backlogItem.moveBackward();
+        assertFalse(backlogItem.getDevelopersToNotify().contains(developer2));
+        assertTrue(backlogItem.getDevelopersToNotify().contains(developer1));
+        backlogItem.moveForward();
+        backlogItem.moveForward();
+        backlogItem.moveForward();
+        backlogItem.moveForward();
+
+        //Tested
+        assertFalse(backlogItem.getDevelopersToNotify().contains(developer2));
+        assertFalse(backlogItem.getDevelopersToNotify().contains(developer1));
+
+        //Backstep
+        backlogItem.moveBackward();
+        assertFalse(backlogItem.getDevelopersToNotify().contains(developer2));
+        assertTrue(backlogItem.getDevelopersToNotify().contains(developer1));
+        backlogItem.moveForward();
+        backlogItem.moveForward();
+        backlogItem.moveForward();
+        //Done
+        assertFalse(backlogItem.getDevelopersToNotify().contains(developer2));
+        assertFalse(backlogItem.getDevelopersToNotify().contains(developer1));
+    }
+
+
 
 }

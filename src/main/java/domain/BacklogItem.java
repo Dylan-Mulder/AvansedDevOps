@@ -72,6 +72,7 @@ public class BacklogItem {
     }
     public void setDevelopersToNotify(ArrayList<Developer> developers){
         this.developersToNotify= developers;
+        publisher.notifySubscribers(this);
     }
 
     public void setCurrentSprint(Sprint currentSprint) {

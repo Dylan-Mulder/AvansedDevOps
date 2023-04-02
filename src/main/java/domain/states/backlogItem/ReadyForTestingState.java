@@ -1,8 +1,10 @@
 package domain.states.backlogItem;
 
 import domain.BacklogItem;
+import domain.Developer;
 import domain.Task;
 
+import java.util.ArrayList;
 import java.util.logging.Level;
 
 public class ReadyForTestingState extends AbstractBacklogItemState {
@@ -38,7 +40,7 @@ public class ReadyForTestingState extends AbstractBacklogItemState {
 
     public void moveForward(BacklogItem backlogItem) {
         logger.log(Level.INFO, "Moved " + backlogItem.getName() + " to: Testing");
-        backlogItem.setDevelopersToNotify(null);
+        backlogItem.setDevelopersToNotify(new ArrayList<Developer>());
         backlogItem.setState(new TestingState());
     }
 
