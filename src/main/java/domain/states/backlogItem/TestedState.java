@@ -47,20 +47,7 @@ public class TestedState extends AbstractBacklogItemState {
 
     public void moveBackward(BacklogItem backlogItem) {
         logger.log(Level.INFO, "Moved " + backlogItem.getName() + " to: Ready For Testing");
-        setUpReceivers(backlogItem);
+        setUpReceivers(backlogItem, "LeadDeveloper");
         backlogItem.setState(new ReadyForTestingState());
-    }
-    public void setUpReceivers(BacklogItem backlogItem){
-        ArrayList<Developer> developers = backlogItem.getCurrentSprint().getDevelopers();
-        ArrayList<Task> tasks = backlogItem.getTasks();
-        ArrayList<Developer> receivers = new ArrayList<>();
-        Developer d;
-        for (Task task: tasks){
-            d = task.getCurrentDeveloper();
-            if(!receivers.contains(d)&&d.isLeadDeveloper()){
-                receivers.add(d);
-            }
-        }
-        backlogItem.setDevelopersToNotify(receivers);
     }
 }

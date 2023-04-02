@@ -8,21 +8,11 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 
 public class DoingState extends AbstractBacklogItemState {
-    /* ATTRIBUTES */
 
-
-    /* CONSTRUCTORS */
     public DoingState() {
         // Only create the Object
     }
 
-    /* GETTERS */
-
-
-    /* SETTERS */
-
-
-    /* METHODS */
     public void changeName(BacklogItem backlogItem, String name) {
         logger.log(Level.WARNING, "Can't change name while in state: Doing");
     }
@@ -49,8 +39,8 @@ public class DoingState extends AbstractBacklogItemState {
             }
         }
         if (isFinished) {
-            setUpReceivers(backlogItem);
-            //update state
+            setUpReceivers(backlogItem, "Tester");
+
             backlogItem.setState(new ReadyForTestingState());
         }
         else  logger.log(Level.WARNING, "Not all tasks are finished!");
@@ -58,18 +48,6 @@ public class DoingState extends AbstractBacklogItemState {
 
     public void moveBackward(BacklogItem backlogItem) {
         logger.log(Level.WARNING, "Can't move backwards now!");
-    }
-    public void setUpReceivers(BacklogItem backlogItem){
-        ArrayList<Task> tasks = backlogItem.getTasks();
-        ArrayList<Developer> receivers = new ArrayList<>();
-        Developer d;
-        for (Task task: tasks){
-            d = task.getCurrentDeveloper();
-            if(!receivers.contains(d)&&d.isTester()){
-                receivers.add(d);
-            }
-        }
-        backlogItem.setDevelopersToNotify(receivers);
     }
 
 }

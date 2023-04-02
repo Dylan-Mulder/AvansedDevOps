@@ -8,21 +8,8 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 
 public class ReadyForTestingState extends AbstractBacklogItemState {
-    /* ATTRIBUTES */
+    public ReadyForTestingState() {}
 
-
-    /* CONSTRUCTORS */
-    public ReadyForTestingState() {
-        // Only create the Object
-    }
-
-    /* GETTERS */
-
-
-    /* SETTERS */
-
-
-    /* METHODS */
     public void changeName(BacklogItem backlogItem, String name) {
         logger.log(Level.WARNING, "Can't change name while in state: Ready For Testing");
     }

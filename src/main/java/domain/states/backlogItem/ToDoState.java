@@ -6,21 +6,9 @@ import domain.Task;
 import java.util.logging.Level;
 
 public class ToDoState extends AbstractBacklogItemState {
-    /* ATTRIBUTES */
-
-
-    /* CONSTRUCTORS */
     public ToDoState() {
-        // Only create the Object
     }
 
-    /* GETTERS */
-
-
-    /* SETTERS */
-
-
-    /* METHODS */
     public void changeName(BacklogItem backlogItem, String name) {
         logger.log(Level.WARNING, "Can't change name while in state: To Do");
     }

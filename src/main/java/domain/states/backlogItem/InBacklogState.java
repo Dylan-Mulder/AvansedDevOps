@@ -5,20 +5,9 @@ import domain.Task;
 import java.util.logging.Level;
 
 public class InBacklogState extends AbstractBacklogItemState {
-    /* ATTRIBUTES */
-
-    /* CONSTRUCTORS */
     public InBacklogState() {
-        // Only create the Object
     }
 
-    /* GETTERS */
-
-
-    /* SETTERS */
-
-
-    /* METHODS */
     public void changeName(BacklogItem backlogItem, String name) {
         logger.log(Level.INFO, "Changed " + backlogItem.getName() + " to " + name);
         backlogItem.setName(name);
@@ -46,6 +35,5 @@ public class InBacklogState extends AbstractBacklogItemState {
 
     public void moveBackward(BacklogItem backlogItem) {
         logger.log(Level.WARNING, "Can't move backwards!");
-        // Do nothing
     }
 }
