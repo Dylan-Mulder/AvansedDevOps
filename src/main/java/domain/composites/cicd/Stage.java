@@ -6,7 +6,9 @@ public class Stage extends CompositeComponent {
     /* ATTRIBUTES */
 
     /* CONSTRUCTORS */
-    public Stage() {}
+    public Stage() {
+        // Builder Pattern
+    }
 
     /* GETTERS */
 

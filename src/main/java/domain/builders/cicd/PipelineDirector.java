@@ -6,7 +6,9 @@ public class PipelineDirector {
     /* ATTRIBUTES */
 
     /* CONSTRUCTORS */
-    public PipelineDirector() {}
+    public PipelineDirector() {
+        // Only create the Object
+    }
 
     /* METHODS */
     public void buildReleasePipeline(IPipelineBuilder builder) {
@@ -60,6 +62,8 @@ public class PipelineDirector {
     }
 
     private void setupMainStructure(IPipelineBuilder builder) {
+        String seperator = "[INFO] ------------------------------------------------------------------------";
+
         builder.addStage("Source", "");
         builder.addJob("Clone GIT Repository", "");
         builder.addCommand("git clone https://gitlab.com/tvw203/avanseddevops.git", new String[]{
@@ -87,12 +91,12 @@ public class PipelineDirector {
                 "Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/2.5/maven-clean-plugin-2.5.jar",
                 "Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/2.5/maven-clean-plugin-2.5.jar (24 kB at 486 kB/s)",
                 "...",
-                "[INFO] ------------------------------------------------------------------------",
+                seperator,
                 "[INFO] BUILD SUCCESS",
-                "[INFO] ------------------------------------------------------------------------",
+                seperator,
                 "[INFO] Total time:  3.456 s",
                 "[INFO] Finished at: " + LocalDateTime.now(),
-                "[INFO] ------------------------------------------------------------------------"
+                seperator
         });
 
         builder.addStage("Test", "");
@@ -114,12 +118,12 @@ public class PipelineDirector {
                 "",
                 "Tests run: 4, Failures: 0, Errors: 0, Skipped: 0",
                 "",
-                "[INFO] ------------------------------------------------------------------------",
+                seperator,
                 "[INFO] BUILD SUCCESS",
-                "[INFO] ------------------------------------------------------------------------",
+                seperator,
                 "[INFO] Total time:  10.378 s",
                 "[INFO] Finished at: " + LocalDateTime.now(),
-                "[INFO] ------------------------------------------------------------------------"
+                seperator
         });
     }
 }

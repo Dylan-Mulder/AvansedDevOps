@@ -6,7 +6,9 @@ public class Job extends CompositeComponent {
     /* ATTRIBUTES */
 
     /* CONSTRUCTORS */
-    public Job() {}
+    public Job() {
+        // Builder Pattern
+    }
 
     /* GETTERS */
 

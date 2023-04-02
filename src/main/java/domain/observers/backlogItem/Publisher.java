@@ -9,7 +9,9 @@ public class Publisher {
     private final ArrayList<ISubscriber> subscribers = new ArrayList<>();
 
     /* CONSTRUCTORS */
-    public Publisher() {}
+    public Publisher() {
+        // Only create the Object
+    }
 
     /* GETTERS */
 

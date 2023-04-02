@@ -6,7 +6,9 @@ public class Pipeline extends CompositeComponent {
     /* ATTRIBUTES */
 
     /* CONSTRUCTORS */
-    public Pipeline() {}
+    public Pipeline() {
+        // Builder Pattern
+    }
 
     /* GETTERS */
 

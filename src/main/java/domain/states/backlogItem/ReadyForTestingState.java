@@ -13,6 +13,7 @@ public class ReadyForTestingState extends AbstractBacklogItemState {
 
     /* CONSTRUCTORS */
     public ReadyForTestingState() {
+        // Only create the Object
     }
 
     /* GETTERS */

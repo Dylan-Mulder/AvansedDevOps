@@ -26,7 +26,9 @@ public class Sprint {
     private Timer timer;
 
     /* CONSTRUCTORS */
-    public Sprint() {}
+    public Sprint() {
+        // Builder Pattern
+    }
 
     /* GETTERS */
     public String getName() {

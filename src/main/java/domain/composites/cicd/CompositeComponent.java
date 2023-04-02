@@ -10,7 +10,9 @@ public class CompositeComponent extends AbstractComponent {
     private String description;
 
     /* CONSTRUCTORS */
-    public CompositeComponent() {}
+    public CompositeComponent() {
+        // Only extensions of this Object will be created
+    }
 
     /* GETTERS */
     public AbstractComponent getComponent(int position) {

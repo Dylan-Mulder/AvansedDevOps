@@ -8,7 +8,9 @@ public class InBacklogState extends AbstractBacklogItemState {
     /* ATTRIBUTES */
 
     /* CONSTRUCTORS */
-    public InBacklogState() {}
+    public InBacklogState() {
+        // Only create the Object
+    }
 
     /* GETTERS */
 

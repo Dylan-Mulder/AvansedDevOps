@@ -9,7 +9,9 @@ public class SprintDirector {
     /* ATTRIBUTES */
 
     /* CONSTRUCTORS */
-    public SprintDirector() {}
+    public SprintDirector() {
+        // Only create the Object
+    }
 
     /* METHODS */
     public void buildStandardReleaseSprint(ISprintBuilder builder) {

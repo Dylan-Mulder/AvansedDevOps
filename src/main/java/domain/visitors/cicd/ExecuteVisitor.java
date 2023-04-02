@@ -7,7 +7,9 @@ public class ExecuteVisitor extends AbstractVisitor {
     /* ATTRIBUTES */
 
     /* CONSTRUCTORS */
-    public ExecuteVisitor() {}
+    public ExecuteVisitor() {
+        // Only create the Object
+    }
 
     /* GETTERS */
 

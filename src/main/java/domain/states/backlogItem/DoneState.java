@@ -11,6 +11,7 @@ public class DoneState extends AbstractBacklogItemState {
 
     /* CONSTRUCTORS */
     public DoneState() {
+        // Only create the Object
     }
 
     /* GETTERS */

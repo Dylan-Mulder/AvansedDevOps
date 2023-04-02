@@ -13,6 +13,7 @@ public class TestedState extends AbstractBacklogItemState {
 
     /* CONSTRUCTORS */
     public TestedState() {
+        // Only create the Object
     }
 
     /* GETTERS */

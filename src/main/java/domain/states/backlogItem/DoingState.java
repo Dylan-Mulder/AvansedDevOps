@@ -13,6 +13,7 @@ public class DoingState extends AbstractBacklogItemState {
 
     /* CONSTRUCTORS */
     public DoingState() {
+        // Only create the Object
     }
 
     /* GETTERS */

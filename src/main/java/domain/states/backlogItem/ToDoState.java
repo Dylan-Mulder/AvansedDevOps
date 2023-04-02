@@ -11,6 +11,7 @@ public class ToDoState extends AbstractBacklogItemState {
 
     /* CONSTRUCTORS */
     public ToDoState() {
+        // Only create the Object
     }
 
     /* GETTERS */
