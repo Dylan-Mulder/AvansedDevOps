@@ -90,11 +90,14 @@ public class StateBacklogItemTests {
     @Test
     public void checkStateChanges_Doing_Forward_Done(){
         backlogItem.setState(new DoingState());
+        task1.setIsFinished(true);
+        task2.setIsFinished(true);
+        task1.setCurrentDeveloper(developer1);
+        task2.setCurrentDeveloper(developer2);
         backlogItem.addTask(task1);
         backlogItem.addTask(task2);
 
-        task1.setIsFinished(true);
-        task2.setIsFinished(true);
+
         backlogItem.moveForward();
         AbstractBacklogItemState state = backlogItem.getState();
         assertEquals(ReadyForTestingState.class, state.getClass());
