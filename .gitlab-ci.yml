@@ -77,7 +77,7 @@ sonarcloud-check:
     - main
     - merge_requests
     - development
-    - feature-CICD
+    - feature-codecoverage
 
 # For merge requests do not `deploy` but only run `verify`.
 # See https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
