@@ -13,11 +13,16 @@ public class Publisher {
 
     /* GETTERS */
 
+    public ArrayList<ISubscriber> getSubscribers() {
+        return subscribers;
+    }
     /* SETTERS */
 
     /* METHODS */
     public void subscribe(ISubscriber subscriber) {
-        subscribers.add(subscriber);
+        if (!subscribers.contains(subscriber)) {
+            subscribers.add(subscriber);
+        }
     }
 
     public void unsubscribe(ISubscriber subscriber) {

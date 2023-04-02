@@ -40,7 +40,7 @@ public class TestedState extends AbstractBacklogItemState {
 
     public void moveForward(BacklogItem backlogItem) {
         logger.log(Level.INFO, "Moved " + backlogItem.getName() + " to: Done");
-        backlogItem.setDevelopersToNotify(null);
+        backlogItem.setDevelopersToNotify(new ArrayList<Developer>());
         backlogItem.setState(new DoneState());
     }
 
@@ -56,15 +56,8 @@ public class TestedState extends AbstractBacklogItemState {
         Developer d;
         for (Task task: tasks){
             d = task.getCurrentDeveloper();
-            if(!receivers.contains(d)){
+            if(!receivers.contains(d)&&d.isLeadDeveloper()){
                 receivers.add(d);
-            }
-        }
-        for (Developer developer: developers){
-            if (developer.isLeadDeveloper()){
-                if(!receivers.contains(developer)){
-                    receivers.add(developer);
-                }
             }
         }
         backlogItem.setDevelopersToNotify(receivers);
