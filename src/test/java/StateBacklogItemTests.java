@@ -2,8 +2,8 @@ import domain.BacklogItem;
 import domain.Developer;
 import domain.Sprint;
 import domain.Task;
-import domain.builders.sprint.Director;
 import domain.builders.sprint.SprintBuilder;
+import domain.builders.sprint.SprintDirector;
 import domain.states.backlogItem.*;
 import domain.states.sprint.AbstractSprintState;
 import org.junit.jupiter.api.AfterEach;
@@ -23,13 +23,13 @@ public class StateBacklogItemTests {
     Developer developer1;
     Developer developer2;
     Sprint sprint;
-    private Director director;
+    private SprintDirector director;
     private SprintBuilder sprintBuilder;
     /* DATA MANAGEMENT */
     @BeforeAll
     public void setupMockData() {
         sprintBuilder = new SprintBuilder();
-        director = new Director();
+        director = new SprintDirector();
         director.buildStandardReleaseSprint(sprintBuilder);
         sprint = sprintBuilder.build();
 

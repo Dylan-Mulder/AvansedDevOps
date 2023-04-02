@@ -1,7 +1,7 @@
 import domain.BacklogItem;
 import domain.Sprint;
-import domain.builders.sprint.Director;
 import domain.builders.sprint.SprintBuilder;
+import domain.builders.sprint.SprintDirector;
 import domain.states.sprint.AbstractSprintState;
 import domain.states.sprint.FinishedState;
 import domain.states.sprint.NotStartedState;
@@ -16,13 +16,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class StateSprintTests {
     /* ATTRIBUTES */
-    private Director director;
+    private SprintDirector director;
     private SprintBuilder sprintBuilder;
 
     /* DATA MANAGEMENT */
     @BeforeAll
     public void setupMockData() {
-        director = new Director();
+        director = new SprintDirector();
         sprintBuilder = new SprintBuilder();
     }
 

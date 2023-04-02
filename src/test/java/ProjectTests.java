@@ -1,6 +1,6 @@
 import domain.*;
-import domain.builders.sprint.Director;
 import domain.builders.sprint.SprintBuilder;
+import domain.builders.sprint.SprintDirector;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -20,7 +20,7 @@ public class ProjectTests {
     private Developer developer1;
     private Developer developer2;
 
-    private Director director;
+    private SprintDirector director;
     private SprintBuilder sprintBuilder;
 
     /* DATA MANAGEMENT */
@@ -33,7 +33,7 @@ public class ProjectTests {
         backlogItem1 = new BacklogItem("Feature 1", "Use JUnit");
         backlogItem2 = new BacklogItem("Feature 2", "Use Java");
 
-        director = new Director();
+        director = new SprintDirector();
         sprintBuilder = new SprintBuilder();
     }
 
