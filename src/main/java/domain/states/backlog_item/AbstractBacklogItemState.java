@@ -26,11 +26,9 @@ public abstract class AbstractBacklogItemState {
     public abstract void moveForward(BacklogItem backlogItem);
     public abstract void moveBackward(BacklogItem backlogItem);
     protected void setUpReceivers(BacklogItem backlogItem,String receiverClasses){
-        List<Task> tasks = backlogItem.getTasks();
+        List<Developer> developers = backlogItem.getCurrentSprint().getDevelopers();
         ArrayList<Developer> receivers = new ArrayList<>();
-            Developer d;
-            for (Task task: tasks){
-                d = task.getCurrentDeveloper();
+            for (Developer d : developers){
                 if(!receivers.contains(d)){
                     if (d.isTester()&&receiverClasses.contains("Tester")){
                         receivers.add(d);

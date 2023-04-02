@@ -99,7 +99,7 @@ public class Project {
 
     public void exportReport(String report, String preferredType){
         if (preferredType.equals("System")){
-            logger.log(Level.INFO, report);
+            System.out.println(report);
         }
         //Open for more export types.
     }
