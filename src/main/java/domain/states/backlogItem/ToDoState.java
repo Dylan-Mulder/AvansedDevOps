@@ -21,7 +21,7 @@ public class ToDoState extends AbstractBacklogItemState {
 
     /* METHODS */
     public void changeName(BacklogItem backlogItem, String name) {
-        logger.log(Level.WARNING, "Can't change name!");
+        logger.log(Level.WARNING, "Can't change name while in state: To Do");
     }
 
     public void changeDescription(BacklogItem backlogItem, String description) {

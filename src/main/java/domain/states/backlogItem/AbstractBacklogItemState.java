@@ -22,5 +22,4 @@ public abstract class AbstractBacklogItemState {
     abstract public void changeTasksRemove(BacklogItem backlogItem, Task task);
     abstract public void moveForward(BacklogItem backlogItem);
     abstract public void moveBackward(BacklogItem backlogItem);
-
 }

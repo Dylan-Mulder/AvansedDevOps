@@ -23,19 +23,19 @@ public class DoingState extends AbstractBacklogItemState {
 
     /* METHODS */
     public void changeName(BacklogItem backlogItem, String name) {
-        logger.log(Level.WARNING, "Can't change name!");
+        logger.log(Level.WARNING, "Can't change name while in state: Doing");
     }
 
     public void changeDescription(BacklogItem backlogItem, String description) {
-        logger.log(Level.WARNING, "Can't change description!");
+        logger.log(Level.WARNING, "Can't change description while in state: Doing!");
     }
 
     public void changeTasksAdd(BacklogItem backlogItem, Task task) {
-        logger.log(Level.WARNING, "Can't add tasks now!");
+        logger.log(Level.WARNING, "Can't add tasks now while in state: Doing");
     }
 
     public void changeTasksRemove(BacklogItem backlogItem, Task task) {
-        logger.log(Level.WARNING, "Can't remove tasks now!");
+        logger.log(Level.WARNING, "Can't remove tasks now while in state: Doing");
     }
 
     public void moveForward(BacklogItem backlogItem) {
