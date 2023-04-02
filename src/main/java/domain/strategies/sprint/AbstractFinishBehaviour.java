@@ -15,7 +15,7 @@ public abstract class AbstractFinishBehaviour {
     private final ExecuteVisitor visitor;
 
     /* CONSTRUCTORS */
-    public AbstractFinishBehaviour() {
+    protected AbstractFinishBehaviour() {
         logger.setLevel(Level.CONFIG);
         director = new PipelineDirector();
         builder = new PipelineBuilder();

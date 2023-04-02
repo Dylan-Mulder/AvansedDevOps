@@ -15,27 +15,27 @@ public class ToDoState extends AbstractBacklogItemState {
     }
 
     public void changeDescription(BacklogItem backlogItem, String description) {
-        logger.log(Level.INFO, "Changed " + backlogItem.getDescription() + " to " + description);
+        logger.log(Level.INFO, String.format("Changed %s to %s", backlogItem.getDescription(), description));
         backlogItem.setDescription(description);
     }
 
     public void changeTasksAdd(BacklogItem backlogItem, Task task) {
-        logger.log(Level.INFO, "Added task " + task.getName() + " to " + backlogItem.getName());
+        logger.log(Level.INFO, String.format("Added task %s to %s", task.getName(), backlogItem.getName()));
         backlogItem.addTask(task);
     }
 
     public void changeTasksRemove(BacklogItem backlogItem, Task task) {
-        logger.log(Level.INFO, "Removed task " + task.getName() + " from " + backlogItem.getName());
+        logger.log(Level.INFO, String.format("Removed task %s from %s", task.getName(), backlogItem.getName()));
         backlogItem.removeTask(task);
     }
 
     public void moveForward(BacklogItem backlogItem) {
-        logger.log(Level.INFO, "Moved " + backlogItem.getName() + " to: Doing");
+        logger.log(Level.INFO, String.format("Moved %s to: Doing", backlogItem.getName()));
         backlogItem.setState(new DoingState());
     }
 
     public void moveBackward(BacklogItem backlogItem) {
-        logger.log(Level.INFO, "Moved " + backlogItem.getName() + " to: In Backlog");
+        logger.log(Level.INFO, String.format("Moved %s to: In Backlog", backlogItem.getName()));
         backlogItem.setState(new InBacklogState());
     }
 }

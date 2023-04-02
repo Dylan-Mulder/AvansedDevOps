@@ -15,7 +15,7 @@ public class Project {
     private final ArrayList<Sprint> sprints = new ArrayList<>();
     private final ArrayList<Developer> developers = new ArrayList<>();
     private Developer projectLead;
-    Logger logger = Logger.getLogger(InBacklogState.class.getName());
+    Logger logger = Logger.getLogger(Project.class.getName());
 
     /* CONSTRUCTORS */
     public Project(Developer projectLead){

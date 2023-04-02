@@ -4,7 +4,6 @@ import domain.composites.cicd.Command;
 import domain.composites.cicd.Job;
 import domain.composites.cicd.Pipeline;
 import domain.composites.cicd.Stage;
-import domain.states.backlog_item.InBacklogState;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

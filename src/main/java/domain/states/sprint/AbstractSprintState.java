@@ -10,10 +10,10 @@ import java.util.logging.Logger;
 public abstract class AbstractSprintState {
     /* ATTRIBUTES */
     protected Sprint sprint;
-    Logger logger = Logger.getLogger(InBacklogState.class.getName());
+    Logger logger = Logger.getLogger(AbstractSprintState.class.getName());
 
     /* CONSTRUCTORS */
-    public AbstractSprintState(Sprint sprint) {
+    protected AbstractSprintState(Sprint sprint) {
         logger.setLevel(Level.CONFIG);
         this.sprint = sprint;
     }
@@ -22,15 +22,15 @@ public abstract class AbstractSprintState {
     abstract  public String getStateName();
 
     /* SETTERS */
-    abstract public void setName(String name);
-    abstract public void setDescription(String description);
-    abstract public void addBacklogItem(BacklogItem backlogItem);
-    abstract public void removeBacklogItem(BacklogItem backlogItem);
+    public abstract void setName(String name);
+    public abstract void setDescription(String description);
+    public abstract void addBacklogItem(BacklogItem backlogItem);
+    public abstract void removeBacklogItem(BacklogItem backlogItem);
 
     /* METHODS */
 
-    abstract public void start();
-    abstract public void performFinish();
+    public abstract void start();
+    public abstract void performFinish();
     public void dispose() {
         //Use this method to clean up any ongoing processes.
     }

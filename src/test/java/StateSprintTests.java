@@ -146,7 +146,7 @@ class StateSprintTests {
         BacklogItem backlogItem = new BacklogItem("Test","123");
         sprint.addBacklogItem(backlogItem);
 
-        assertEquals(sprint.getBacklogItems().size(),1);
+        assertEquals(1, sprint.getBacklogItems().size());
     }
 
     @Test
@@ -157,7 +157,7 @@ class StateSprintTests {
         BacklogItem backlogItem = new BacklogItem("Test","123");
         sprint.addBacklogItem(backlogItem);
 
-        assertEquals(sprint.getBacklogItems().size(),0);
+        assertEquals(0, sprint.getBacklogItems().size());
     }
 
     @Test
@@ -168,7 +168,7 @@ class StateSprintTests {
         BacklogItem backlogItem = new BacklogItem("Test","123");
         sprint.addBacklogItem(backlogItem);
 
-        assertEquals(sprint.getBacklogItems().size(),0);
+        assertEquals(0, sprint.getBacklogItems().size());
     }
 
     //removeBacklogItem()
@@ -180,7 +180,7 @@ class StateSprintTests {
         sprint.addBacklogItem(backlogItem);
         sprint.removeBacklogItem(backlogItem);
 
-        assertEquals(sprint.getBacklogItems().size(),0);
+        assertEquals(0, sprint.getBacklogItems().size());
     }
 
     @Test
@@ -192,7 +192,7 @@ class StateSprintTests {
         sprint.setState(new OngoingState(sprint));
         sprint.removeBacklogItem(backlogItem);
 
-        assertEquals(sprint.getBacklogItems().size(),1);
+        assertEquals(1, sprint.getBacklogItems().size());
     }
 
     @Test
@@ -204,7 +204,7 @@ class StateSprintTests {
         sprint.setState(new FinishedState(sprint));
         sprint.removeBacklogItem(backlogItem);
 
-        assertEquals(sprint.getBacklogItems().size(),1);
+        assertEquals(1, sprint.getBacklogItems().size());
     }
 
     //performFinish()

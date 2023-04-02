@@ -1,7 +1,6 @@
 package domain.states.backlog_item;
 
 import domain.BacklogItem;
-import domain.Developer;
 import domain.Task;
 
 import java.util.ArrayList;
