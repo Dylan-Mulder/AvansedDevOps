@@ -1,18 +1,30 @@
 package domain.strategies.sprint;
 
-public class FinishRelease implements IFinishBehaviour {
+import domain.builders.cicd.PipelineBuilder;
+import domain.builders.cicd.PipelineDirector;
+import domain.composites.cicd.Pipeline;
+import domain.visitors.cicd.ExecuteVisitor;
+
+public class FinishRelease extends AbstractFinishBehaviour {
     /* ATTRIBUTES */
 
     /* CONSTRUCTORS */
-    public FinishRelease() {}
+    public FinishRelease() {
+        super();
+    }
 
     /* GETTERS */
 
     /* SETTERS */
 
     /* METHODS */
-    @Override
     public void performFinish() {
-        System.out.println("Released!");
+        PipelineDirector director = getDirector();
+        PipelineBuilder builder = getBuilder();
+        ExecuteVisitor visitor = getVisitor();
+
+        director.buildReleasePipeline(builder);
+        Pipeline pipeline = builder.build();
+        pipeline.acceptVisitor(visitor);
     }
 }
