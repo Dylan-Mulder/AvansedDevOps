@@ -1,7 +1,7 @@
 package domain.builders.sprint;
 
 import domain.Sprint;
-import domain.strategies.sprint.IFinishBehaviour;
+import domain.strategies.sprint.AbstractFinishBehaviour;
 
 import java.time.LocalDate;
 
@@ -28,7 +28,7 @@ public class SprintBuilder implements ISprintBuilder {
         sprint.setDescription(description);
     }
     @Override
-    public void setType(IFinishBehaviour finishBehaviour) {
+    public void setType(AbstractFinishBehaviour finishBehaviour) {
         sprint.setFinishBehaviour(finishBehaviour);
     }
     @Override

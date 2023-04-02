@@ -2,7 +2,7 @@ package domain;
 
 import domain.states.sprint.AbstractSprintState;
 import domain.states.sprint.NotStartedState;
-import domain.strategies.sprint.IFinishBehaviour;
+import domain.strategies.sprint.AbstractFinishBehaviour;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -18,7 +18,7 @@ public class Sprint {
     private AbstractSprintState state = new NotStartedState(this);
     private final ArrayList<BacklogItem> backlogItems = new ArrayList<>();
     private final ArrayList<Developer> developers = new ArrayList<>();
-    private IFinishBehaviour finishBehaviour;
+    private AbstractFinishBehaviour finishBehaviour;
     private int duration;
     private LocalDate startDate;
     private LocalDate endDate;
@@ -44,7 +44,7 @@ public class Sprint {
     public ArrayList<Developer> getDevelopers() {
         return developers;
     }
-    public IFinishBehaviour getFinishBehaviour() {
+    public AbstractFinishBehaviour getFinishBehaviour() {
         return finishBehaviour;
     }
     public int getDuration() {
@@ -92,7 +92,7 @@ public class Sprint {
     public void removeDeveloper(Developer developer) {
         developers.remove(developer);
     }
-    public void setFinishBehaviour(IFinishBehaviour finishBehaviour) {
+    public void setFinishBehaviour(AbstractFinishBehaviour finishBehaviour) {
         this.finishBehaviour = finishBehaviour;
     }
     public void setDuration(int duration) {
