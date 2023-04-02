@@ -13,28 +13,28 @@ import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class BuilderTests {
+public class SprintBuilderTests {
     /* ATTRIBUTES */
-    private SprintDirector sprintDirector;
-    private SprintBuilder sprintBuilder;
+    private SprintDirector director;
+    private SprintBuilder builder;
 
     /* DATA MANAGEMENT */
     @BeforeAll
     public void setupMockData() {
-        sprintDirector = new SprintDirector();
-        sprintBuilder = new SprintBuilder();
+        director = new SprintDirector();
+        builder = new SprintBuilder();
     }
 
     @AfterEach
     public void resetMockData() {
-        sprintBuilder.reset();
+        builder.reset();
     }
 
     /* TESTS */
     @Test
     public void checkIfSprintIsStandardRelease() {
-        sprintDirector.buildStandardReleaseSprint(sprintBuilder);
-        Sprint sprint = sprintBuilder.build();
+        director.buildStandardReleaseSprint(builder);
+        Sprint sprint = builder.build();
 
         assertAll(
                 "Grouped assertions of Standard Release Sprint",
@@ -49,8 +49,8 @@ public class BuilderTests {
 
     @Test
     public void checkIfSprintIsLongRelease() {
-        sprintDirector.buildLongReleaseSprint(sprintBuilder);
-        Sprint sprint = sprintBuilder.build();
+        director.buildLongReleaseSprint(builder);
+        Sprint sprint = builder.build();
 
         assertAll(
                 "Grouped assertions of Long Release Sprint",
@@ -65,8 +65,8 @@ public class BuilderTests {
 
     @Test
     public void checkIfSprintIsStandardReview() {
-        sprintDirector.buildStandardReviewSprint(sprintBuilder);
-        Sprint sprint = sprintBuilder.build();
+        director.buildStandardReviewSprint(builder);
+        Sprint sprint = builder.build();
 
         assertAll(
                 "Grouped assertions of Standard Review Sprint",
@@ -81,8 +81,8 @@ public class BuilderTests {
 
     @Test
     public void checkIfSprintIsLongReview() {
-        sprintDirector.buildLongReviewSprint(sprintBuilder);
-        Sprint sprint = sprintBuilder.build();
+        director.buildLongReviewSprint(builder);
+        Sprint sprint = builder.build();
 
         assertAll(
                 "Grouped assertions of Long Review Sprint",
