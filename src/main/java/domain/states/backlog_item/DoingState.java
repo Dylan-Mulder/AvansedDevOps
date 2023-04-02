@@ -1,10 +1,8 @@
-package domain.states.backlogItem;
+package domain.states.backlog_item;
 
 import domain.BacklogItem;
-import domain.Developer;
 import domain.Task;
 
-import java.util.ArrayList;
 import java.util.logging.Level;
 
 public class DoingState extends AbstractBacklogItemState {
@@ -30,7 +28,7 @@ public class DoingState extends AbstractBacklogItemState {
     }
 
     public void moveForward(BacklogItem backlogItem) {
-        logger.log(Level.INFO, "Moved " + backlogItem.getName() + " to: Ready For Testing");
+        logger.log(Level.INFO, String.format("Moved %s to: Ready For Testing", backlogItem.getName()));
         boolean isFinished = !backlogItem.getTasks().isEmpty();
         for(Task task: backlogItem.getTasks()){
             if (!task.isFinished()) {

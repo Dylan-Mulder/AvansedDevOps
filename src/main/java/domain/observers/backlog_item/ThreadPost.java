@@ -1,12 +1,12 @@
-package domain.observers.backlogItem;
+package domain.observers.backlog_item;
 
 import java.time.LocalDateTime;
 
 public class ThreadPost {
     /* ATTRIBUTES */
-    private String content;
-    private String originalPoster;
-    private LocalDateTime dateTimePosted;
+    private final String content;
+    private final String originalPoster;
+    private final LocalDateTime dateTimePosted;
 
     /* CONSTRUCTORS */
     public ThreadPost(String content, String originalPoster, LocalDateTime dateTimePosted) {
@@ -16,6 +16,15 @@ public class ThreadPost {
     }
 
     /* GETTERS */
+    public String getContent() {
+        return content;
+    }
+    public String getOriginalPoster() {
+        return originalPoster;
+    }
+    public LocalDateTime getDateTimePosted() {
+        return dateTimePosted;
+    }
 
     /* SETTERS */
 

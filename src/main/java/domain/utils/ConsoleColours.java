@@ -1,6 +1,11 @@
 package domain.utils;
 
 public class ConsoleColours {
+    /* CONSTRUCTORS */
+    private ConsoleColours() {
+        // Private Constructor to hide the implicit public one.
+    }
+
     // Reset
     public static final String RESET = "\033[0m";  // Text Reset
 

@@ -1,22 +1,23 @@
-package domain.observers.backlogItem;
+package domain.observers.backlog_item;
 
 import domain.BacklogItem;
 import domain.Developer;
-import domain.Task;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Mailer implements ISubscriber {
     /* ATTRIBUTES */
     private BacklogItem backlogItem;
-    private ArrayList<Developer> receivers = new ArrayList<>();
+    private List<Developer> receivers = new ArrayList<>();
+
     /* CONSTRUCTORS */
     public Mailer(BacklogItem item) {
         this.backlogItem=item;
     }
-    /* GETTERS */
 
-    public ArrayList<Developer> getReceivers() {
+    /* GETTERS */
+    public List<Developer> getReceivers() {
         return receivers;
     }
 

@@ -6,10 +6,7 @@ import domain.strategies.sprint.AbstractFinishBehaviour;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 public class Sprint {
     /* ATTRIBUTES */
@@ -23,7 +20,6 @@ public class Sprint {
     private LocalDate startDate;
     private LocalDate endDate;
     private Developer scrumMaster;
-    private Timer timer;
 
     /* CONSTRUCTORS */
     public Sprint() {
@@ -40,10 +36,10 @@ public class Sprint {
     public AbstractSprintState getState() {
         return state;
     }
-    public ArrayList<BacklogItem> getBacklogItems() {
+    public List<BacklogItem> getBacklogItems() {
         return backlogItems;
     }
-    public ArrayList<Developer> getDevelopers() {
+    public List<Developer> getDevelopers() {
         return developers;
     }
     public AbstractFinishBehaviour getFinishBehaviour() {
@@ -72,13 +68,13 @@ public class Sprint {
     public void setName(String name) {
         this.name = name;
     }
-    public void setName_State(String name){
+    public void setNameState(String name){
         this.state.setName(name);
     }
     public void setDescription(String description) {
         this.description = description;
     }
-    public void  setDescription_State(String description){
+    public void setDescriptionState(String description){
         this.state.setDescription(description);
     }
 
@@ -105,8 +101,8 @@ public class Sprint {
     }
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
-        this.timer = new Timer();
-        this.timer.schedule(new TimerTask() {
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 performFinish();

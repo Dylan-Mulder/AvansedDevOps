@@ -1,6 +1,5 @@
 package domain.composites.cicd;
 
-import domain.states.backlogItem.InBacklogState;
 import domain.visitors.cicd.AbstractVisitor;
 
 import java.util.logging.Level;
@@ -8,11 +7,11 @@ import java.util.logging.Logger;
 
 public abstract class AbstractComponent {
     /* ATTRIBUTES */
-    private final Logger logger = Logger.getLogger(InBacklogState.class.getName());
+    private final Logger logger = Logger.getLogger(AbstractComponent.class.getName());
     private String name;
 
     /* CONSTRUCTORS */
-    public AbstractComponent() {
+    protected AbstractComponent() {
         logger.setLevel(Level.CONFIG);
     }
 
@@ -27,5 +26,5 @@ public abstract class AbstractComponent {
     }
 
     /* METHODS */
-    abstract public void acceptVisitor(AbstractVisitor visitor);
+    public abstract void acceptVisitor(AbstractVisitor visitor);
 }

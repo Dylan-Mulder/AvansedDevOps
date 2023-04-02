@@ -4,8 +4,7 @@ import domain.Sprint;
 import domain.Task;
 import domain.builders.sprint.SprintBuilder;
 import domain.builders.sprint.SprintDirector;
-import domain.states.backlogItem.*;
-import domain.states.sprint.AbstractSprintState;
+import domain.states.backlog_item.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -14,7 +13,7 @@ import org.junit.jupiter.api.TestInstance;
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class StateBacklogItemTests {
+class StateBacklogItemTests {
     /* ATTRIBUTES */
     BacklogItem backlogItem;
     Task task1;
@@ -53,26 +52,26 @@ public class StateBacklogItemTests {
     /* Tests */
     //State changes
     @Test
-    public void checkDefaultState(){
+    void checkDefaultState(){
         AbstractBacklogItemState state = backlogItem.getState();
         assertEquals(InBacklogState.class, state.getClass());
     }
 
     @Test
-    public void checkStateChanges_Backlog_Forward(){
+    void checkStateChanges_Backlog_Forward(){
         backlogItem.moveForward();
         AbstractBacklogItemState state = backlogItem.getState();
         assertEquals(ToDoState.class, state.getClass());
     }
     @Test
-    public void checkStateChanges_Backlog_Backward(){
+    void checkStateChanges_Backlog_Backward(){
         backlogItem.moveBackward();
         AbstractBacklogItemState state = backlogItem.getState();
         assertEquals(InBacklogState.class, state.getClass());
     }
 
     @Test
-    public void checkStateChanges_ToDo_Forward(){
+    void checkStateChanges_ToDo_Forward(){
         backlogItem.setState(new ToDoState());
         backlogItem.moveForward();
         AbstractBacklogItemState state = backlogItem.getState();
@@ -80,7 +79,7 @@ public class StateBacklogItemTests {
     }
 
     @Test
-    public void checkStateChanges_ToDo_Backward(){
+    void checkStateChanges_ToDo_Backward(){
         backlogItem.setState(new ToDoState());
         backlogItem.moveBackward();
         AbstractBacklogItemState state = backlogItem.getState();
@@ -88,7 +87,7 @@ public class StateBacklogItemTests {
     }
 
     @Test
-    public void checkStateChanges_Doing_Forward_Done(){
+    void checkStateChanges_Doing_Forward_Done(){
         backlogItem.setState(new DoingState());
         task1.setIsFinished(true);
         task2.setIsFinished(true);
@@ -103,7 +102,7 @@ public class StateBacklogItemTests {
         assertEquals(ReadyForTestingState.class, state.getClass());
     }
     @Test
-    public void checkStateChanges_Doing_Forward_NotDone(){
+    void checkStateChanges_Doing_Forward_NotDone(){
         backlogItem.setState(new DoingState());
         task1.setIsFinished(false);
         task2.setIsFinished(false);
@@ -113,7 +112,7 @@ public class StateBacklogItemTests {
     }
 
     @Test
-    public void checkStateChanges_Doing_Backward(){
+    void checkStateChanges_Doing_Backward(){
         backlogItem.setState(new DoingState());
         backlogItem.moveBackward();
         AbstractBacklogItemState state = backlogItem.getState();
@@ -121,7 +120,7 @@ public class StateBacklogItemTests {
     }
 
     @Test
-    public void checkStateChanges_ReadyForTesting_Forward(){
+    void checkStateChanges_ReadyForTesting_Forward(){
         backlogItem.setState(new ReadyForTestingState());
         backlogItem.moveForward();
         AbstractBacklogItemState state = backlogItem.getState();
@@ -129,7 +128,7 @@ public class StateBacklogItemTests {
     }
 
     @Test
-    public void checkStateChanges_ReadyForTesting_Backward(){
+    void checkStateChanges_ReadyForTesting_Backward(){
         backlogItem.setState(new ReadyForTestingState());
         backlogItem.moveBackward();
         AbstractBacklogItemState state = backlogItem.getState();
@@ -137,7 +136,7 @@ public class StateBacklogItemTests {
     }
 
     @Test
-    public void checkStateChanges_Testing_Forward(){
+    void checkStateChanges_Testing_Forward(){
         backlogItem.setState(new TestingState());
         backlogItem.moveForward();
         AbstractBacklogItemState state = backlogItem.getState();
@@ -145,7 +144,7 @@ public class StateBacklogItemTests {
     }
 
     @Test
-    public void checkStateChanges_Testing_Backward(){
+    void checkStateChanges_Testing_Backward(){
         backlogItem.setState(new TestingState());
         backlogItem.moveBackward();
         AbstractBacklogItemState state = backlogItem.getState();
@@ -154,7 +153,7 @@ public class StateBacklogItemTests {
 
 
     @Test
-    public void checkStateChanges_Tested_Forward(){
+    void checkStateChanges_Tested_Forward(){
         backlogItem.setState(new TestedState());
         backlogItem.moveForward();
         AbstractBacklogItemState state = backlogItem.getState();
@@ -162,7 +161,7 @@ public class StateBacklogItemTests {
     }
 
     @Test
-    public void checkStateChanges_Tested_Backward(){
+    void checkStateChanges_Tested_Backward(){
         backlogItem.setState(new TestedState());
         backlogItem.moveBackward();
         AbstractBacklogItemState state = backlogItem.getState();
@@ -170,7 +169,7 @@ public class StateBacklogItemTests {
     }
 
     @Test
-    public void checkStateChanges_Done_Forward(){
+    void checkStateChanges_Done_Forward(){
         backlogItem.setState(new DoneState());
         backlogItem.moveForward();
         AbstractBacklogItemState state = backlogItem.getState();
@@ -178,7 +177,7 @@ public class StateBacklogItemTests {
     }
 
     @Test
-    public void checkStateChanges_Done_Backward(){
+    void checkStateChanges_Done_Backward(){
         backlogItem.setState(new DoneState());
         backlogItem.moveBackward();
         AbstractBacklogItemState state = backlogItem.getState();
@@ -188,7 +187,7 @@ public class StateBacklogItemTests {
     //Info Changes
 
     @Test
-    public void checkInfoChanges_InBacklog(){
+    void checkInfoChanges_InBacklog(){
         backlogItem.setState(new InBacklogState());
         backlogItem.changeName("Lorem");
         backlogItem.changeDescription("Ipsum");
@@ -197,7 +196,7 @@ public class StateBacklogItemTests {
     }
 
     @Test
-    public void checkInfoChanges_ToDo(){
+    void checkInfoChanges_ToDo(){
         backlogItem.setState(new ToDoState());
         backlogItem.changeName("Lorem");
         backlogItem.changeDescription("Ipsum");
@@ -206,7 +205,7 @@ public class StateBacklogItemTests {
     }
 
     @Test
-    public void checkInfoChanges_Doing(){
+    void checkInfoChanges_Doing(){
         backlogItem.setState(new DoingState());
         backlogItem.changeName("Lorem");
         backlogItem.changeDescription("Ipsum");
@@ -215,7 +214,7 @@ public class StateBacklogItemTests {
     }
 
     @Test
-    public void checkInfoChanges_ReadyForTesting(){
+    void checkInfoChanges_ReadyForTesting(){
         backlogItem.setState(new ReadyForTestingState());
         backlogItem.changeName("Lorem");
         backlogItem.changeDescription("Ipsum");
@@ -224,7 +223,7 @@ public class StateBacklogItemTests {
     }
 
     @Test
-    public void checkInfoChanges_Testing(){
+    void checkInfoChanges_Testing(){
         backlogItem.setState(new TestingState());
         backlogItem.changeName("Lorem");
         backlogItem.changeDescription("Ipsum");
@@ -233,7 +232,7 @@ public class StateBacklogItemTests {
     }
 
     @Test
-    public void checkInfoChanges_Tested(){
+    void checkInfoChanges_Tested(){
         backlogItem.setState(new TestedState());
         backlogItem.changeName("Lorem");
         backlogItem.changeDescription("Ipsum");
@@ -242,7 +241,7 @@ public class StateBacklogItemTests {
     }
 
     @Test
-    public void checkInfoChanges_Done(){
+    void checkInfoChanges_Done(){
         backlogItem.setState(new DoneState());
         backlogItem.changeName("Lorem");
         backlogItem.changeDescription("Ipsum");
@@ -253,7 +252,7 @@ public class StateBacklogItemTests {
     //Change Tasks
 
     @Test
-    public void checkTaskAdded_InBacklog(){
+    void checkTaskAdded_InBacklog(){
         backlogItem.setState(new InBacklogState());
         backlogItem.changeTasksAdd(task1);
         backlogItem.changeTasksAdd(task2);
@@ -263,7 +262,7 @@ public class StateBacklogItemTests {
     }
 
     @Test
-    public void checkTaskAdded_ToDo(){
+    void checkTaskAdded_ToDo(){
         backlogItem.setState(new ToDoState());
         backlogItem.changeTasksAdd(task1);
         backlogItem.changeTasksAdd(task2);
@@ -273,7 +272,7 @@ public class StateBacklogItemTests {
     }
 
     @Test
-    public void checkTaskAdded_Doing(){
+    void checkTaskAdded_Doing(){
         backlogItem.setState(new DoingState());
         backlogItem.changeTasksAdd(task1);
         backlogItem.changeTasksAdd(task2);
@@ -283,7 +282,7 @@ public class StateBacklogItemTests {
     }
 
     @Test
-    public void checkTaskAdded_ReadyForTesting(){
+    void checkTaskAdded_ReadyForTesting(){
         backlogItem.setState(new ReadyForTestingState());
         backlogItem.changeTasksAdd(task1);
         backlogItem.changeTasksAdd(task2);
@@ -293,7 +292,7 @@ public class StateBacklogItemTests {
     }
 
     @Test
-    public void checkTaskAdded_Testing(){
+    void checkTaskAdded_Testing(){
         backlogItem.setState(new TestingState());
         backlogItem.changeTasksAdd(task1);
         backlogItem.changeTasksAdd(task2);
@@ -303,7 +302,7 @@ public class StateBacklogItemTests {
     }
 
     @Test
-    public void checkTaskAdded_Tested(){
+    void checkTaskAdded_Tested(){
         backlogItem.setState(new TestedState());
         backlogItem.changeTasksAdd(task1);
         backlogItem.changeTasksAdd(task2);
@@ -313,7 +312,7 @@ public class StateBacklogItemTests {
     }
 
     @Test
-    public void checkTaskAdded_Done(){
+    void checkTaskAdded_Done(){
         backlogItem.setState(new DoneState());
         backlogItem.changeTasksAdd(task1);
         backlogItem.changeTasksAdd(task2);
@@ -323,7 +322,7 @@ public class StateBacklogItemTests {
     }
 
     @Test
-    public void checkTaskRemoved_InBacklog(){
+    void checkTaskRemoved_InBacklog(){
         backlogItem.setState(new InBacklogState());
         backlogItem.addTask(task1);
         backlogItem.addTask(task2);
@@ -338,7 +337,7 @@ public class StateBacklogItemTests {
     }
 
     @Test
-    public void checkTaskRemoved_ToDo(){
+    void checkTaskRemoved_ToDo(){
         backlogItem.setState(new ToDoState());
         backlogItem.addTask(task1);
         backlogItem.addTask(task2);
@@ -353,7 +352,7 @@ public class StateBacklogItemTests {
     }
 
     @Test
-    public void checkTaskRemoved_Doing(){
+    void checkTaskRemoved_Doing(){
         backlogItem.setState(new DoingState());
         backlogItem.addTask(task1);
         backlogItem.addTask(task2);
@@ -366,7 +365,7 @@ public class StateBacklogItemTests {
     }
 
     @Test
-    public void checkTaskRemoved_ReadyForTesting(){
+    void checkTaskRemoved_ReadyForTesting(){
         backlogItem.setState(new ReadyForTestingState());
         backlogItem.addTask(task1);
         backlogItem.addTask(task2);
@@ -379,7 +378,7 @@ public class StateBacklogItemTests {
     }
 
     @Test
-    public void checkTaskRemoved_Testing(){
+    void checkTaskRemoved_Testing(){
         backlogItem.setState(new TestingState());
         backlogItem.addTask(task1);
         backlogItem.addTask(task2);
@@ -392,7 +391,7 @@ public class StateBacklogItemTests {
     }
 
     @Test
-    public void checkTaskRemoved_Tested(){
+    void checkTaskRemoved_Tested(){
         backlogItem.setState(new TestedState());
         backlogItem.addTask(task1);
         backlogItem.addTask(task2);
@@ -405,7 +404,7 @@ public class StateBacklogItemTests {
     }
 
     @Test
-    public void checkTaskRemoved_Done(){
+    void checkTaskRemoved_Done(){
         backlogItem.setState(new DoneState());
         backlogItem.addTask(task1);
         backlogItem.addTask(task2);
@@ -418,7 +417,7 @@ public class StateBacklogItemTests {
     }
 
     @Test
-    public void checkGetDevelopersToNotify(){
+    void checkGetDevelopersToNotify(){
         task1.setIsFinished(true);
         task2.setIsFinished(true);
         task1.setCurrentDeveloper(developer1);

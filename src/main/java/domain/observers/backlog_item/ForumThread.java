@@ -1,17 +1,16 @@
-package domain.observers.backlogItem;
+package domain.observers.backlog_item;
 
 import domain.BacklogItem;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class ForumThread implements ISubscriber {
     /* ATTRIBUTES */
     private BacklogItem backlogItem;
-    private ArrayList<ThreadPost> threadPosts = new ArrayList<>();
-
+    private final ArrayList<ThreadPost> threadPosts = new ArrayList<>();
 
     /* CONSTRUCTORS */
     public ForumThread(BacklogItem item) {
@@ -19,16 +18,13 @@ public class ForumThread implements ISubscriber {
     }
 
     /* GETTERS */
-
     public BacklogItem getBacklogItem() {
         return backlogItem;
     }
-
     public void setBacklogItem(BacklogItem backlogItem) {
         this.backlogItem = backlogItem;
     }
-
-    public ArrayList<ThreadPost> getThreadPosts() {
+    public List<ThreadPost> getThreadPosts() {
         return threadPosts;
     }
 

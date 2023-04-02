@@ -1,16 +1,17 @@
-package domain.states.backlogItem;
+package domain.states.backlog_item;
 
 import domain.BacklogItem;
 import domain.Task;
+
 import java.util.logging.Level;
 
-public class InBacklogState extends AbstractBacklogItemState {
-    public InBacklogState() {
+public class ToDoState extends AbstractBacklogItemState {
+    public ToDoState() {
+        // Only create the Object
     }
 
     public void changeName(BacklogItem backlogItem, String name) {
-        logger.log(Level.INFO, "Changed " + backlogItem.getName() + " to " + name);
-        backlogItem.setName(name);
+        logger.log(Level.WARNING, "Can't change name while in state: To Do");
     }
 
     public void changeDescription(BacklogItem backlogItem, String description) {
@@ -29,11 +30,12 @@ public class InBacklogState extends AbstractBacklogItemState {
     }
 
     public void moveForward(BacklogItem backlogItem) {
-        logger.log(Level.INFO, "Moved " + backlogItem.getName() + " to: To Do");
-        backlogItem.setState(new ToDoState());
+        logger.log(Level.INFO, "Moved " + backlogItem.getName() + " to: Doing");
+        backlogItem.setState(new DoingState());
     }
 
     public void moveBackward(BacklogItem backlogItem) {
-        logger.log(Level.WARNING, "Can't move backwards!");
+        logger.log(Level.INFO, "Moved " + backlogItem.getName() + " to: In Backlog");
+        backlogItem.setState(new InBacklogState());
     }
 }

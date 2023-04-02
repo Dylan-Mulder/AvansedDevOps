@@ -4,6 +4,7 @@ import domain.visitors.cicd.AbstractVisitor;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Command extends AbstractComponent {
     /* ATTRIBUTES */
@@ -16,7 +17,7 @@ public class Command extends AbstractComponent {
     }
 
     /* GETTERS */
-    public ArrayList<String> getOutputLines() {
+    public List<String> getOutputLines() {
         return outputLines;
     }
     /* SETTERS */

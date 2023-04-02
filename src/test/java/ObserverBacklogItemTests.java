@@ -4,12 +4,9 @@ import domain.Sprint;
 import domain.Task;
 import domain.builders.sprint.SprintBuilder;
 import domain.builders.sprint.SprintDirector;
-import domain.observers.backlogItem.ForumThread;
-import domain.observers.backlogItem.Mailer;
-import domain.observers.backlogItem.Publisher;
-import domain.states.backlogItem.DoingState;
-import domain.states.backlogItem.ReadyForTestingState;
-import domain.states.backlogItem.ToDoState;
+import domain.observers.backlog_item.ForumThread;
+import domain.observers.backlog_item.Mailer;
+import domain.states.backlog_item.DoingState;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -18,7 +15,7 @@ import org.junit.jupiter.api.TestInstance;
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class ObserverBacklogItemTests {
+class ObserverBacklogItemTests {
     /* ATTRIBUTES */
     BacklogItem backlogItem;
     Task task1;
@@ -61,7 +58,7 @@ public class ObserverBacklogItemTests {
     }
 
     @Test
-    public void checkSubscribe(){
+    void checkSubscribe(){
         assertEquals(0,backlogItem.getPublisher().getSubscribers().size());
         backlogItem.getPublisher().subscribe(mailer);
         backlogItem.getPublisher().subscribe(forumThread);
@@ -70,7 +67,8 @@ public class ObserverBacklogItemTests {
         assertTrue(backlogItem.getPublisher().getSubscribers().contains(forumThread));
     }
 
-    @Test public void checkUnsubscribe(){
+    @Test
+    void checkUnsubscribe(){
         backlogItem.getPublisher().subscribe(mailer);
         backlogItem.getPublisher().subscribe(forumThread);
         assertEquals(2,backlogItem.getPublisher().getSubscribers().size());
@@ -81,7 +79,7 @@ public class ObserverBacklogItemTests {
     }
 
     @Test
-    public void checkNotifySubscribers(){
+    void checkNotifySubscribers(){
         backlogItem.getPublisher().subscribe(mailer);
         backlogItem.getPublisher().subscribe(forumThread);
 

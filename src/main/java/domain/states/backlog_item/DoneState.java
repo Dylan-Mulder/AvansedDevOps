@@ -1,4 +1,4 @@
-package domain.states.backlogItem;
+package domain.states.backlog_item;
 
 import domain.BacklogItem;
 import domain.Task;

@@ -4,17 +4,17 @@ import domain.composites.cicd.Command;
 import domain.composites.cicd.Job;
 import domain.composites.cicd.Pipeline;
 import domain.composites.cicd.Stage;
-import domain.states.backlogItem.InBacklogState;
+import domain.states.backlog_item.InBacklogState;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public abstract class AbstractVisitor {
     /* ATTRIBUTES */
-    Logger logger = Logger.getLogger(InBacklogState.class.getName());
+    Logger logger = Logger.getLogger(AbstractVisitor.class.getName());
 
     /* CONSTRUCTORS */
-    public AbstractVisitor() {
+    protected AbstractVisitor() {
         logger.setLevel(Level.CONFIG);
     }
 
@@ -23,8 +23,8 @@ public abstract class AbstractVisitor {
     /* SETTERS */
 
     /* METHODS */
-    abstract public void visitPipeline(Pipeline pipeline);
-    abstract public void visitStage(Stage stage);
-    abstract public void visitJob(Job job);
-    abstract public void visitCommand(Command command);
+    public abstract void visitPipeline(Pipeline pipeline);
+    public abstract void visitStage(Stage stage);
+    public abstract void visitJob(Job job);
+    public abstract void visitCommand(Command command);
 }

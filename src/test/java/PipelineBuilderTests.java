@@ -11,7 +11,7 @@ import org.junit.jupiter.api.TestInstance;
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class PipelineBuilderTests {
+class PipelineBuilderTests {
     /* ATTRIBUTES */
     private PipelineDirector director;
     private PipelineBuilder builder;
@@ -30,7 +30,7 @@ public class PipelineBuilderTests {
 
     /* TESTS */
     @Test
-    public void checkIfReleasePipelineHasCorrectStages() {
+    void checkIfReleasePipelineHasCorrectStages() {
         director.buildReleasePipeline(builder);
         Pipeline pipeline = builder.build();
 
@@ -50,7 +50,7 @@ public class PipelineBuilderTests {
     }
 
     @Test
-    public void checkIfReleasePipelineSourceStageHasCorrectJobs() {
+    void checkIfReleasePipelineSourceStageHasCorrectJobs() {
         director.buildReleasePipeline(builder);
         Pipeline pipeline = builder.build();
         Stage stage = (Stage) pipeline.getComponent(0);
@@ -63,7 +63,7 @@ public class PipelineBuilderTests {
     }
 
     @Test
-    public void checkIfReleasePipelineBuildStageHasCorrectJobs() {
+    void checkIfReleasePipelineBuildStageHasCorrectJobs() {
         director.buildReleasePipeline(builder);
         Pipeline pipeline = builder.build();
         Stage stage = (Stage) pipeline.getComponent(1);
@@ -76,7 +76,7 @@ public class PipelineBuilderTests {
     }
 
     @Test
-    public void checkIfReleasePipelineTestStageHasCorrectJobs() {
+    void checkIfReleasePipelineTestStageHasCorrectJobs() {
         director.buildReleasePipeline(builder);
         Pipeline pipeline = builder.build();
         Stage stage = (Stage) pipeline.getComponent(2);
@@ -89,7 +89,7 @@ public class PipelineBuilderTests {
     }
 
     @Test
-    public void checkIfReleasePipelineDeploymentStageHasCorrectJobs() {
+    void checkIfReleasePipelineDeploymentStageHasCorrectJobs() {
         director.buildReleasePipeline(builder);
         Pipeline pipeline = builder.build();
         Stage stage = (Stage) pipeline.getComponent(3);
@@ -102,7 +102,7 @@ public class PipelineBuilderTests {
     }
 
     @Test
-    public void checkIfReleasePipelineReleaseStageHasCorrectJobs() {
+    void checkIfReleasePipelineReleaseStageHasCorrectJobs() {
         director.buildReleasePipeline(builder);
         Pipeline pipeline = builder.build();
         Stage stage = (Stage) pipeline.getComponent(4);
@@ -116,7 +116,7 @@ public class PipelineBuilderTests {
 
     // REVIEW
     @Test
-    public void checkIfReviewPipelineHasCorrectStages() {
+    void checkIfReviewPipelineHasCorrectStages() {
         director.buildReviewPipeline(builder);
         Pipeline pipeline = builder.build();
 
@@ -132,7 +132,7 @@ public class PipelineBuilderTests {
     }
 
     @Test
-    public void checkIfReviewPipelineSourceStageHasCorrectJobs() {
+    void checkIfReviewPipelineSourceStageHasCorrectJobs() {
         director.buildReviewPipeline(builder);
         Pipeline pipeline = builder.build();
         Stage stage = (Stage) pipeline.getComponent(0);
@@ -145,7 +145,7 @@ public class PipelineBuilderTests {
     }
 
     @Test
-    public void checkIfReviewPipelineBuildStageHasCorrectJobs() {
+    void checkIfReviewPipelineBuildStageHasCorrectJobs() {
         director.buildReviewPipeline(builder);
         Pipeline pipeline = builder.build();
         Stage stage = (Stage) pipeline.getComponent(1);
@@ -158,7 +158,7 @@ public class PipelineBuilderTests {
     }
 
     @Test
-    public void checkIfReviewPipelineTestStageHasCorrectJobs() {
+    void checkIfReviewPipelineTestStageHasCorrectJobs() {
         director.buildReviewPipeline(builder);
         Pipeline pipeline = builder.build();
         Stage stage = (Stage) pipeline.getComponent(2);

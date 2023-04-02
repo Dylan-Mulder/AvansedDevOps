@@ -1,10 +1,8 @@
-package domain.states.backlogItem;
+package domain.states.backlog_item;
 
 import domain.BacklogItem;
-import domain.Developer;
 import domain.Task;
 
-import java.util.ArrayList;
 import java.util.logging.Level;
 
 public class TestingState extends AbstractBacklogItemState {
@@ -40,12 +38,12 @@ public class TestingState extends AbstractBacklogItemState {
     }
 
     public void moveForward(BacklogItem backlogItem) {
-        logger.log(Level.INFO, "Moved " + backlogItem.getName() + " to: Tested");
+        logger.log(Level.INFO, String.format("Moved %s to: Tested", backlogItem.getName()));
         backlogItem.setState(new TestedState());
     }
 
     public void moveBackward(BacklogItem backlogItem) {
-        logger.log(Level.INFO, "Moved " + backlogItem.getName() + " to: ToDo");
+        logger.log(Level.INFO, String.format("Moved %s to: ToDo", backlogItem.getName()));
         setUpReceivers(backlogItem, "LeadDeveloper");
         backlogItem.setState(new ToDoState());
     }

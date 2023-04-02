@@ -1,8 +1,9 @@
-package domain.observers.backlogItem;
+package domain.observers.backlog_item;
 
 import domain.BacklogItem;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Publisher {
     /* ATTRIBUTES */
@@ -14,10 +15,10 @@ public class Publisher {
     }
 
     /* GETTERS */
-
-    public ArrayList<ISubscriber> getSubscribers() {
+    public List<ISubscriber> getSubscribers() {
         return subscribers;
     }
+
     /* SETTERS */
 
     /* METHODS */

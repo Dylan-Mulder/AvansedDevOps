@@ -14,7 +14,7 @@ import org.junit.jupiter.api.TestInstance;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class StateSprintTests {
+class StateSprintTests {
     /* ATTRIBUTES */
     private SprintDirector director;
     private SprintBuilder sprintBuilder;
@@ -36,14 +36,14 @@ public class StateSprintTests {
 
     //State Changes
     @Test
-    public void checkIfDefaultStateIsNotStarted(){
+    void checkIfDefaultStateIsNotStarted(){
         Sprint sprint = sprintBuilder.build();
         AbstractSprintState state = sprint.getState();
         assertEquals(NotStartedState.class, state.getClass());
     }
 
     @Test
-    public void checkStateChanges_NotStartedToOngoing(){
+    void checkStateChanges_NotStartedToOngoing(){
         director.buildStandardReleaseSprint(sprintBuilder);
         Sprint sprint = sprintBuilder.build();
         sprint.start();
@@ -52,7 +52,7 @@ public class StateSprintTests {
     }
 
     @Test
-    public void checkStateChanges_OngoingToFinished(){
+    void checkStateChanges_OngoingToFinished(){
         director.buildStandardReleaseSprint(sprintBuilder);
         Sprint sprint = sprintBuilder.build();
         sprint.setState(new OngoingState(sprint));
@@ -63,7 +63,7 @@ public class StateSprintTests {
     }
 
     @Test
-    public void checkStateChanges_FinishedToOngoing(){
+    void checkStateChanges_FinishedToOngoing(){
         director.buildStandardReleaseSprint(sprintBuilder);
         Sprint sprint = sprintBuilder.build();
         sprint.setState(new FinishedState(sprint));
@@ -76,71 +76,71 @@ public class StateSprintTests {
 
     //setTitle()
     @Test
-    public void checkSetTitle_NotStarted(){
+    void checkSetTitle_NotStarted(){
         director.buildStandardReleaseSprint(sprintBuilder);
         Sprint sprint = sprintBuilder.build();
-        sprint.setName_State("Test123");
+        sprint.setNameState("Test123");
 
-        assertEquals(sprint.getName(), "Test123");
+        assertEquals("Test123", sprint.getName());
     }
 
     @Test
-    public void checkSetTitle_Ongoing(){
+    void checkSetTitle_Ongoing(){
         director.buildStandardReleaseSprint(sprintBuilder);
         Sprint sprint = sprintBuilder.build();
         sprint.setState(new OngoingState(sprint));
         sprint.setName("Test321");
-        sprint.setName_State("Test123");
+        sprint.setNameState("Test123");
 
-        assertEquals(sprint.getName(), "Test321");
+        assertEquals("Test321", sprint.getName());
     }
 
     @Test
-    public void checkSetTitle_Finished(){
+    void checkSetTitle_Finished(){
         director.buildStandardReleaseSprint(sprintBuilder);
         Sprint sprint = sprintBuilder.build();
         sprint.setState(new FinishedState(sprint));
         sprint.setName("Test321");
-        sprint.setName_State("Test123");
+        sprint.setNameState("Test123");
 
-        assertEquals(sprint.getName(), "Test321");
+        assertEquals("Test321", sprint.getName());
     }
 
     //setDescription()
     @Test
-    public void checkSetDescription_NotStarted(){
+    void checkSetDescription_NotStarted(){
         director.buildStandardReleaseSprint(sprintBuilder);
         Sprint sprint = sprintBuilder.build();
-        sprint.setDescription_State("Test123");
+        sprint.setDescriptionState("Test123");
 
-        assertEquals(sprint.getDescription(), "Test123");
+        assertEquals("Test123", sprint.getDescription());
     }
 
     @Test
-    public void checkSetDescription_Ongoing(){
+    void checkSetDescription_Ongoing(){
         director.buildStandardReleaseSprint(sprintBuilder);
         Sprint sprint = sprintBuilder.build();
         sprint.setState(new OngoingState(sprint));
         sprint.setDescription("Test321");
-        sprint.setDescription_State("Test123");
+        sprint.setDescriptionState("Test123");
 
-        assertEquals(sprint.getDescription(), "Test321");
+        assertEquals("Test321", sprint.getDescription());
     }
 
     @Test
-    public void checkSetDescription_Finished(){
+    void checkSetDescription_Finished(){
         director.buildStandardReleaseSprint(sprintBuilder);
         Sprint sprint = sprintBuilder.build();
         sprint.setState(new FinishedState(sprint));
         sprint.setDescription("Test321");
-        sprint.setDescription_State("Test123");
+        sprint.setDescriptionState("Test123");
 
-        assertEquals(sprint.getDescription(), "Test321");
+        assertEquals("Test321", sprint.getDescription());
     }
 
     //addBacklogItem()
     @Test
-    public void checkAddBacklogItem_NotStarted(){
+    void checkAddBacklogItem_NotStarted(){
         director.buildStandardReleaseSprint(sprintBuilder);
         Sprint sprint = sprintBuilder.build();
         BacklogItem backlogItem = new BacklogItem("Test","123");
@@ -150,7 +150,7 @@ public class StateSprintTests {
     }
 
     @Test
-    public void checkAddBacklogItem_Ongoing(){
+    void checkAddBacklogItem_Ongoing(){
         director.buildStandardReleaseSprint(sprintBuilder);
         Sprint sprint = sprintBuilder.build();
         sprint.setState(new OngoingState(sprint));
@@ -161,7 +161,7 @@ public class StateSprintTests {
     }
 
     @Test
-    public void checkAddBacklogItem_Finished(){
+    void checkAddBacklogItem_Finished(){
         director.buildStandardReleaseSprint(sprintBuilder);
         Sprint sprint = sprintBuilder.build();
         sprint.setState(new FinishedState(sprint));
@@ -173,7 +173,7 @@ public class StateSprintTests {
 
     //removeBacklogItem()
     @Test
-    public void checkRemoveBacklogItem_NotStarted(){
+    void checkRemoveBacklogItem_NotStarted(){
         director.buildStandardReleaseSprint(sprintBuilder);
         Sprint sprint = sprintBuilder.build();
         BacklogItem backlogItem = new BacklogItem("Test","123");
@@ -184,7 +184,7 @@ public class StateSprintTests {
     }
 
     @Test
-    public void checkRemoveBacklogItem_Ongoing(){
+    void checkRemoveBacklogItem_Ongoing(){
         director.buildStandardReleaseSprint(sprintBuilder);
         Sprint sprint = sprintBuilder.build();
         BacklogItem backlogItem = new BacklogItem("Test","123");
@@ -196,7 +196,7 @@ public class StateSprintTests {
     }
 
     @Test
-    public void checkRemoveBacklogItem_Finished(){
+    void checkRemoveBacklogItem_Finished(){
         director.buildStandardReleaseSprint(sprintBuilder);
         Sprint sprint = sprintBuilder.build();
         BacklogItem backlogItem = new BacklogItem("Test","123");
@@ -209,7 +209,7 @@ public class StateSprintTests {
 
     //performFinish()
     @Test
-    public void checkFinish_NotStarted(){
+    void checkFinish_NotStarted(){
         director.buildStandardReleaseSprint(sprintBuilder);
         Sprint sprint = sprintBuilder.build();
         sprint.performFinish();
@@ -219,7 +219,7 @@ public class StateSprintTests {
     }
 
     @Test
-    public void checkFinish_Ongoing(){
+    void checkFinish_Ongoing(){
         director.buildStandardReleaseSprint(sprintBuilder);
         Sprint sprint = sprintBuilder.build();
         sprint.setState(new OngoingState(sprint));
@@ -230,13 +230,8 @@ public class StateSprintTests {
         assertEquals(FinishedState.class, state.getClass());
     }
 
-//    @Test
-//    public void checkFinish_Ongoing_Automatic(){
-//
-//    }
-
     @Test
-    public void checkFinish_Finished(){
+    void checkFinish_Finished(){
         director.buildStandardReleaseSprint(sprintBuilder);
         Sprint sprint = sprintBuilder.build();
         sprint.setState(new FinishedState(sprint));

@@ -1,23 +1,21 @@
 package domain;
 
-import domain.observers.backlogItem.Publisher;
-import domain.states.backlogItem.AbstractBacklogItemState;
-import domain.states.backlogItem.InBacklogState;
+import domain.observers.backlog_item.Publisher;
+import domain.states.backlog_item.AbstractBacklogItemState;
+import domain.states.backlog_item.InBacklogState;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class BacklogItem {
     /* ATTRIBUTES */
     private String name;
     private String description;
     private AbstractBacklogItemState state = new InBacklogState();
-    private final ArrayList<Task> tasks = new ArrayList<>();
-
-    private ArrayList<Developer> developersToNotify = new ArrayList<>();
-
+    private final List<Task> tasks = new ArrayList<>();
+    private List<Developer> developersToNotify = new ArrayList<>();
     private Sprint currentSprint;
-
-    private Publisher publisher;
+    private final Publisher publisher;
 
     /* CONSTRUCTORS */
     public BacklogItem(String name, String description) {
@@ -36,23 +34,18 @@ public class BacklogItem {
     public AbstractBacklogItemState getState() {
         return state;
     }
-    public ArrayList<Task> getTasks() {
+    public List<Task> getTasks() {
         return tasks;
     }
-
-    public ArrayList<Developer> getDevelopersToNotify() {
+    public List<Developer> getDevelopersToNotify() {
         return developersToNotify;
     }
-
     public Publisher getPublisher() {
         return publisher;
     }
-
     public Sprint getCurrentSprint() {
         return currentSprint;
     }
-
-
 
     /* SETTERS */
     public void setName(String name) {
@@ -70,11 +63,10 @@ public class BacklogItem {
     public void removeTask(Task task) {
         tasks.remove(task);
     }
-    public void setDevelopersToNotify(ArrayList<Developer> developers){
-        this.developersToNotify= developers;
+    public void setDevelopersToNotify(List<Developer> developers){
+        this.developersToNotify = developers;
         publisher.notifySubscribers(this);
     }
-
     public void setCurrentSprint(Sprint currentSprint) {
         this.currentSprint = currentSprint;
     }

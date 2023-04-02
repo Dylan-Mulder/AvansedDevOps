@@ -13,7 +13,7 @@ import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class SprintBuilderTests {
+class SprintBuilderTests {
     /* ATTRIBUTES */
     private SprintDirector director;
     private SprintBuilder builder;
@@ -32,7 +32,7 @@ public class SprintBuilderTests {
 
     /* TESTS */
     @Test
-    public void checkIfSprintIsStandardRelease() {
+    void checkIfSprintIsStandardRelease() {
         director.buildStandardReleaseSprint(builder);
         Sprint sprint = builder.build();
 
@@ -48,7 +48,7 @@ public class SprintBuilderTests {
     }
 
     @Test
-    public void checkIfSprintIsLongRelease() {
+    void checkIfSprintIsLongRelease() {
         director.buildLongReleaseSprint(builder);
         Sprint sprint = builder.build();
 
@@ -64,7 +64,7 @@ public class SprintBuilderTests {
     }
 
     @Test
-    public void checkIfSprintIsStandardReview() {
+    void checkIfSprintIsStandardReview() {
         director.buildStandardReviewSprint(builder);
         Sprint sprint = builder.build();
 
@@ -80,7 +80,7 @@ public class SprintBuilderTests {
     }
 
     @Test
-    public void checkIfSprintIsLongReview() {
+    void checkIfSprintIsLongReview() {
         director.buildLongReviewSprint(builder);
         Sprint sprint = builder.build();
 

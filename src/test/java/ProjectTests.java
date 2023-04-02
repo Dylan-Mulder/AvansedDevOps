@@ -8,11 +8,12 @@ import org.junit.jupiter.api.TestInstance;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class ProjectTests {
+class ProjectTests {
     /* ATTRIBUTES */
     private Project project;
     private BacklogItem backlogItem1;
@@ -54,7 +55,7 @@ public class ProjectTests {
         project.addBacklogItem(backlogItem1);
         project.addBacklogItem(backlogItem2);
 
-        ArrayList<BacklogItem> backlogItems = project.getBacklogItems();
+        List<BacklogItem> backlogItems = project.getBacklogItems();
 
         assertEquals(2, backlogItems.size());
         assertTrue(backlogItems.contains(backlogItem1));
@@ -65,7 +66,7 @@ public class ProjectTests {
         director.buildStandardReleaseSprint(sprintBuilder);
         Sprint sprint = sprintBuilder.build();
         project.addSprint(sprint);
-        ArrayList<Sprint> sprints = project.getSprints();
+        List<Sprint> sprints = project.getSprints();
 
         assertEquals(1, sprints.size());
         assertTrue(sprints.contains(sprint));
@@ -76,7 +77,7 @@ public class ProjectTests {
         project.addDeveloper(developer1);
         project.addDeveloper(developer2);
 
-        ArrayList<Developer> developers = project.getDevelopers();
+        List<Developer> developers = project.getDevelopers();
 
         assertEquals(2, developers.size());
         assertTrue(developers.contains(developer1));
@@ -90,7 +91,7 @@ public class ProjectTests {
 
         project.removeBacklogItem(backlogItem1);
 
-        ArrayList<BacklogItem> backlogItems = project.getBacklogItems();
+        List<BacklogItem> backlogItems = project.getBacklogItems();
 
         assertEquals(1, backlogItems.size());
         assertFalse(backlogItems.contains(backlogItem1));
@@ -100,7 +101,7 @@ public class ProjectTests {
     void testRemoveSprint() {
         Sprint sprint = sprintBuilder.build();
         project.addSprint(sprint);
-        ArrayList<Sprint> sprints = project.getSprints();
+        List<Sprint> sprints = project.getSprints();
 
         assertEquals(1, sprints.size());
         assertTrue(sprints.contains(sprint));
@@ -116,7 +117,7 @@ public class ProjectTests {
 
         project.removeDeveloper(developer1);
 
-        ArrayList<Developer> developers = project.getDevelopers();
+        List<Developer> developers = project.getDevelopers();
 
         assertEquals(1, developers.size());
         assertFalse(developers.contains(developer1));
@@ -138,7 +139,7 @@ public class ProjectTests {
 
         project.addSprint(sprint);
 
-        ArrayList<Sprint> sprints = project.getSprints();
+        List<Sprint> sprints = project.getSprints();
         String report = project.sprintReport(sprints.get(0), "Avans");
         assertEquals(report, "Sprint Report generated for: Avans\n" +
                 "State of sprint: Not Started\n" +

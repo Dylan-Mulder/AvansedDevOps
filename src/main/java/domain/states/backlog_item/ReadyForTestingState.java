@@ -1,4 +1,4 @@
-package domain.states.backlogItem;
+package domain.states.backlog_item;
 
 import domain.BacklogItem;
 import domain.Developer;
@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 
 public class ReadyForTestingState extends AbstractBacklogItemState {
-    public ReadyForTestingState() {}
+    public ReadyForTestingState() {
+        // Only create the Object
+    }
 
     public void changeName(BacklogItem backlogItem, String name) {
         logger.log(Level.WARNING, "Can't change name while in state: Ready For Testing");
@@ -27,8 +29,8 @@ public class ReadyForTestingState extends AbstractBacklogItemState {
     }
 
     public void moveForward(BacklogItem backlogItem) {
-        logger.log(Level.INFO, "Moved " + backlogItem.getName() + " to: Testing");
-        backlogItem.setDevelopersToNotify(new ArrayList<Developer>());
+        logger.log(Level.INFO, String.format("Moved %s to: Testing", backlogItem.getName()));
+        backlogItem.setDevelopersToNotify(new ArrayList<>());
         backlogItem.setState(new TestingState());
     }
 

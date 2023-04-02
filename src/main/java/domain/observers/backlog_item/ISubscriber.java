@@ -1,4 +1,4 @@
-package domain.observers.backlogItem;
+package domain.observers.backlog_item;
 
 import domain.BacklogItem;
 
