@@ -2,7 +2,6 @@ package domain.states.sprint;
 
 import domain.BacklogItem;
 import domain.Sprint;
-import domain.states.backlog_item.InBacklogState;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,7 +18,7 @@ public abstract class AbstractSprintState {
     }
 
     /* GETTERS */
-    abstract  public String getStateName();
+    public abstract String getStateName();
 
     /* SETTERS */
     public abstract void setName(String name);

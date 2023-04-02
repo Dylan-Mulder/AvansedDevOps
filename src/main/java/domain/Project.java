@@ -1,7 +1,5 @@
 package domain;
 
-import domain.states.backlog_item.InBacklogState;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
